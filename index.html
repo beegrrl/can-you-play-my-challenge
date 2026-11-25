@@ -43,7 +43,6 @@ h2{font-weight:650;font-size:clamp(1.55rem,3.2vw,2.15rem);letter-spacing:-.03em;
 h3{font-weight:650;font-size:1.2rem;letter-spacing:-.02em;line-height:1.25;margin:30px 0 8px}
 p{margin:0 0 14px;max-width:68ch}
 .intro{font-size:1.14rem;color:var(--ink);max-width:62ch}
-.status{font-size:.95rem;color:var(--muted);max-width:62ch;margin-bottom:30px}
 section{padding:42px 0;border-top:1px solid var(--line)}
 .fine{font-size:.93rem;color:var(--muted)}
 
@@ -133,7 +132,7 @@ footer p{max-width:none}
 }
 @media (max-width:560px){
   main,.top,footer{padding-left:18px;padding-right:18px}
-  .top{font-size:.9rem;gap:12px}
+  .top{font-size:.9rem;gap:6px 12px;flex-wrap:wrap}
   .top a,.wordmark{white-space:nowrap}
   .wordmark{font-size:1rem}
   h1{margin-top:30px}
@@ -155,22 +154,29 @@ footer p{max-width:none}
 @media(max-width:520px){.room-pair{gap:10px}.room-label,.room-quote{font-size:.94rem}}
 @media(max-width:350px){.room-pair{grid-template-columns:1fr;gap:14px}}
 
-.study-opening{display:grid;grid-template-columns:minmax(0,1.75fr) minmax(0,1fr);align-items:start;gap:clamp(24px,4vw,44px);margin:22px 0 18px}
-.study-opening p{margin:0}
-.study-opening .opening-question{font-family:"Bricolage Grotesque",Inter,sans-serif;font-size:clamp(1.23rem,2vw,1.5rem);font-weight:600;line-height:1.23;letter-spacing:-.015em;margin-bottom:10px;text-wrap:pretty}
-.opening-prose{font-size:1.0625rem;line-height:1.5}
+.study-opening{max-width:72ch;margin:24px 0}
+.study-opening .opening-question{max-width:44ch;margin:0 0 10px;font:600 clamp(1.25rem,2.4vw,1.55rem)/1.22 "Bricolage Grotesque",Inter,sans-serif;letter-spacing:-.018em;text-wrap:pretty}
+.opening-prose{margin:0;font-size:1.0625rem;line-height:1.55}
+.opening-prose+.opening-prose{margin-top:10px}
 .opening-prose strong{font-weight:650}
-.author-note{border-inline-start:3px solid var(--orange);padding-inline-start:16px;font-size:1rem;line-height:1.45}
-.author-note-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:6px}
-.author-note-head h2{font-size:1.06rem;letter-spacing:-.01em;margin:0}
-.author-note-head a{font-size:.875rem;color:var(--muted)}
-.author-note a{text-decoration-thickness:1px;text-underline-offset:.16em}
-.author-photo{margin:2px 0 10px}
+main>h1{margin-bottom:10px}
+.status{max-width:none;margin:0;color:var(--muted);font-size:.9rem;line-height:1.45}
+.author-note{display:grid;grid-template-columns:minmax(0,1fr) clamp(196px,27%,236px);gap:24px;align-items:start;padding:18px 0;border-block:1px solid var(--line)}
+.author-note-head{display:flex;align-items:baseline;flex-wrap:wrap;gap:14px;margin-bottom:8px}
+.author-note-head h2{margin:0;font-size:1.2rem;letter-spacing:-.02em}
+.author-note-head a{font-size:.875rem;color:var(--muted);text-decoration-thickness:1px;text-underline-offset:.18em}
+.author-copy p{margin:0;font-size:.98rem;line-height:1.5}
+.author-copy p+p{margin-top:8px}
+.author-photo{margin:0}
 .author-photo img{display:block;width:100%;height:auto;border-radius:3px}
-.author-photo figcaption{margin-top:6px;color:var(--muted);font-size:.8125rem;line-height:1.4}
-@media(max-width:720px){.author-photo{max-width:340px}}
-.author-note a:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
-@media(max-width:720px){.study-opening{grid-template-columns:1fr;gap:17px}.author-note{max-width:60ch}}
+.author-photo figcaption{margin-top:5px;color:var(--muted);font-size:.8rem;line-height:1.4}
+@media(max-width:620px){
+  .study-opening{margin:20px 0}
+  .author-note{grid-template-columns:1fr;gap:14px;padding:16px 0}
+  .author-photo{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);align-items:end;gap:12px;max-width:400px}
+  .author-photo figcaption{margin:0}
+}
+@media(max-width:350px){.author-photo{display:block;max-width:252px}.author-photo figcaption{margin-top:5px}}
 </style>
 </head>
 <body>
@@ -178,24 +184,26 @@ footer p{max-width:none}
 <header class="top"><span class="wordmark"><span class="mark" aria-hidden="true"></span>Can you play my challenge?</span><a href="https://beegrrl.github.io/">Melissa Thorne</a></header>
 <main id="main">
 <h1><span>Every rule I handed over came back.</span> <span>So did at least 55 I never wrote.</span></h1>
+<p class="status">Across nine rule lists, the lower of two counts found 55 added limits. A limit that appeared in two lists counted twice.</p>
 <div class="study-opening">
-  <div>
-    <p class="opening-question">If you invent a challenge and I host the next round, whose rules do the players get?</p>
-    <p class="opening-prose"><strong>I used Muse on my Mac</strong> to make 3 versions of a starter-home challenge in The Sims 4. Muse is Meta's AI agent. Each version called for 1 offensively orange room. I passed each version to a second account 3 ways. I wrote my predictions before any run. Most of them were wrong.</p>
-  </div>
-  <aside class="author-note" aria-labelledby="author-note-title">
+  <p class="opening-question">If you invent a challenge and I host the next round, whose rules do the players get?</p>
+  <p class="opening-prose">In The Sims 4, players can start with the same building prompt and make completely different houses. Mine called for one offensively orange room. I wanted to see whether the next host could use Muse, Meta’s AI agent, to pass my challenge along, keep my name on it and still choose where to build.</p>
+  <p class="opening-prose"><strong>I used Muse on my Mac</strong> to make three versions of the challenge. For each version, a second account got my opening prompt, our full conversation or a card Muse wrote. I asked it for the rules to send to players.</p>
+</div>
+<aside class="author-note" aria-labelledby="author-note-title">
+  <div class="author-copy">
     <div class="author-note-head">
       <h2 id="author-note-title">Why I tried it</h2>
       <a href="https://www.linkedin.com/in/beegirl/" aria-label="Melissa Thorne on LinkedIn">LinkedIn</a>
     </div>
-    <figure class="author-photo">
+    <p>I spent nearly seven years on the core development team for The Sims at Electronic Arts. I started there running the global Sims community and its content creator programs.</p>
+    <p>Developer betas were a big part of my work at Oracle. At Chainlink, I ran beta groups in developer marketing and brought their feedback to Product and Engineering.</p>
+  </div>
+  <figure class="author-photo">
       <img src="assets/sims-fan-day-2006.webp" width="604" height="320" alt="Melissa Thorne standing between 2 Sims players in a hallway at Electronic Arts, wearing a badge with a green plumbob.">
       <figcaption>Me with 2 of the players at Sims Fan Day, Electronic Arts, August 2006.</figcaption>
     </figure>
-    <p>I ran the global community for The Sims at Electronic Arts. Developer betas were a big part of my work at Oracle. At Chainlink, I ran beta groups in developer marketing and brought their feedback to Product and Engineering.</p>
-  </aside>
-</div>
-<p class="status">The 55 is the lower of 2 counts across the 9 lists, and the same limit often counts in several.</p>
+</aside>
 <figure class="room-figure">
   <div class="room-pair">
     <div>
