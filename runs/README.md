@@ -24,9 +24,9 @@ The second player's first name is replaced with a bracketed note. Nothing else i
 
 The copy has 2 quirks, and both come from the page. The first items of a numbered list lose their numbers. The answer buttons Muse offers show up as plain lines at the end.
 
-## Muse asked 4 questions, and none was answered
+## 4 answers ended with questions, and none got a reply
 
-`c1-A.txt`, `c1-B.txt`, `c3-A.txt` and `c3-B.txt` end with a question. Each one came after a full rule list, so no reply was sent and every run stayed at 1 message. The reply in `challenge/wording.md` was never used.
+`c1-A.txt`, `c1-B.txt`, `c3-A.txt` and `c3-B.txt` end with questions, and `c3-A.txt` asks 2. Each one came after a full rule list, so no reply was sent and every run stayed at 1 message. The reply in `challenge/wording.md` was never used.
 
 ## Planned and not run
 
