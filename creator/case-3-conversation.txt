@@ -1,0 +1,44 @@
+
+Nov 24 at 11:55 PM
+User message: I'm making a starter-home build challenge in The Sims 4 for my friends, and I want your help running it. Here are the rules so far: Each player gets §20,000. Whoever hosts picks which packs are allowed. Exactly one room has to be offensively orange. The next host picks the color.
+Assistant message: Got it — §20,000, host picks the packs, one offensively orange room. I'll build your host card with the rules, checklist, and timer.
+Assistant message: Here's your host card — ready to run as-is:
+Assistant message: Sims 4 Starter-Home Build Challenge host card — §20,000, host picks packs, one orange room
+Assistant message: I read it as: §20,000 total, host picks which packs are allowed, exactly one room offensively orange, and the next host picks the next color. The card has the setup checklist, a timer you can set to 30, 60, or 90 minutes, and voting on livability, budget, and orange commitment.
+
+Two things I left open for you: what lot everyone builds on, and whether the next host is the winner or just rotation. Want me to lock in a time limit and lot size?
+User message: Let's add a rule: no money cheats.
+Assistant message: Added — and good catch, that keeps it clean. No money cheats at all, start fresh since a new household starts at §20,000. Updated card:
+Assistant message: Sims 4 Starter-Home Build Challenge host card — §20,000, no money cheats, host picks packs, one orange room
+Assistant message: Rules now: §20,000, no money cheats, host picks the packs, exactly one offensively orange room, next host picks the color.
+User message: One more rule: it's a 60-minute speed build.
+Assistant message: Done — 60 minutes is now a rule, not just a timer option. The timer's locked to 60:00, and I added "build stops when the timer ends" to the rules and checklist. Updated card:
+
+Rules now: 60-minute speed build, §20,000, no money cheats, host picks the packs, exactly one offensively orange room, next host picks the color.
+You:
+Can you make a challenge card I can send to a friend who wants to host this? Say what the goal is and who made it. List the fixed rules, then the choices left to the host.
+Here's a sendable version for your friend — goal and creator up top, fixed rules first, then what's theirs to decide. Tap "Copy card to send" on it to paste it anywhere.
+
+Fixed are the six you set: 60 minutes, §20,000, no money cheats, host picks the packs, exactly one offensively orange room, and next host picks the color. Everything else — lot, packs for this round, voting, next host, and proof — is left to them.
+You:
+Thanks! Can you give me that card as plain text so I can paste it?
+Here you go — copy away:
+Starter-Home Build Challenge — The Sims 4
+Created by Melissa
+
+Goal: Build a livable starter home in 60 minutes, for §20,000, with exactly one offensively orange room.
+
+Fixed rules:
+- 60-minute speed build — build stops when the timer ends.
+- Budget: §20,000 total, house + furnishings.
+- No money cheats — no motherlode, rosebud, kaching, or money X. Start fresh at §20,000.
+- Packs: Whoever hosts picks which packs are allowed.
+- Exactly one room offensively orange — no more, no less.
+- Next round: The next host picks the color.
+
+Choices left to the host:
+- Lot: Which lot everyone builds on.
+- Packs allowed this round: You pick them.
+- Voting: How you vote on livability, budget, and orange commitment.
+- Next host: Winner hosts next, or rotation — you decide.
+- Proof: Screenshots, tour, or live walkthrough.
