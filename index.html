@@ -89,6 +89,11 @@ section{padding:42px 0;border-top:1px solid var(--line)}
 .ln.host .txt,.ln.note .txt{color:var(--muted)}
 .money{font-weight:700;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:3px;color:var(--ink)}
 .key{font-size:.9rem;color:var(--muted);margin-top:12px}
+details.full{margin-top:12px}
+details.full summary{cursor:pointer;font-weight:600;padding:6px 0;width:max-content;max-width:100%;text-decoration:underline;text-underline-offset:3px}
+details.full summary:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+.carried table{min-width:0}
+.carried td,.carried th{vertical-align:top}
 
 .table-wrap{overflow-x:auto;margin:16px 0 12px}
 table{border-collapse:collapse;width:100%;font-size:.95rem;font-variant-numeric:tabular-nums}
@@ -212,8 +217,13 @@ footer p{max-width:none}
       <article class="panel" id="p-a" aria-labelledby="pa-title">
         <h3 id="pa-title">What came back from the opening prompt</h3>
         <p class="takeaway">The old budget came back, as it had to. This handoff never carried the change. The list also has rules 4 and 5, which this handoff never carried either. Run 1 shows Muse adds a ban on money cheats by itself. The 60-minute line matches run 2 word for word, so it came from the account's memory. 8 limits here are ones I never wrote.</p>
-        <p class="copied-as">Copied as text on November 25, 2026. The second player's first name is replaced, and nothing else is changed. The copy dropped the numbers from the first few lines, so the numbering starts partway down.</p>
-        <ul class="answer">
+        <ul class="answer telling">
+<li class="ln old"><span class="tag">Rule 1, old budget</span><span class="txt">Each player gets <b class="money">§20,000</b> total, lot included. Final lot value must be <b class="money">§20,000</b> or less.</span></li>
+        </ul>
+        <details class="full">
+          <summary>Read the full reply</summary>
+          <p class="copied-as">Copied as text on November 25, 2026. The second player's first name is replaced, and nothing else is changed. The copy dropped the numbers from the first few lines, so the numbering starts partway down.</p>
+          <ul class="answer">
 <li class="ln head"><span class="tag"></span><span class="txt">Budget</span></li>
 <li class="ln old"><span class="tag">Rule 1, old budget</span><span class="txt">Each player gets <b class="money">§20,000</b> total, lot included. Final lot value must be <b class="money">§20,000</b> or less.</span></li>
 <li class="ln added"><span class="tag">Added</span><span class="txt">Everyone builds on the same lot: Bargain Bend in Willow Creek, Foundry Cove. It's a 30x20 empty lot for §2,000, so you have §18,000 left to build with.</span></li>
@@ -239,14 +249,21 @@ footer p{max-width:none}
 <li class="ln host"><span class="tag">Hosting</span><span class="txt">16. Everyone votes, but you cannot vote for yourself.</span></li>
 <li class="ln host"><span class="tag">Hosting</span><span class="txt">17. Categories: Best Overall, Most Livable, Best Orange Room, and Best Use of Budget.</span></li>
 <li class="ln kept"><span class="tag">Rule 3</span><span class="txt">18. The winner hosts the next round and picks the next color.</span></li>
-        </ul>
+          </ul>
+        </details>
       </article>
 
       <article class="panel" id="p-b" aria-labelledby="pb-title">
         <h3 id="pb-title">What came back from the full conversation</h3>
         <p class="takeaway">§16,000 arrived, as a spending limit. §20,000 is here too, named as the money a new household starts with. All 5 of my rules are in the list, with 8 limits I never wrote.</p>
-        <p class="copied-as">Copied as text on November 25, 2026. The second player's first name is replaced, and nothing else is changed. The copy dropped the numbers from the first few lines, so the numbering starts partway down.</p>
-        <ul class="answer">
+        <ul class="answer telling">
+<li class="ln kept"><span class="tag">Rule 1, the budget</span><span class="txt">Each player gets <b class="money">§16,000</b> total to spend, lot included. Final lot value must be <b class="money">§16,000</b> or less.</span></li>
+<li class="ln note"><span class="tag">Budget note</span><span class="txt">Important: a new household starts at <b class="money">§20,000</b>, and no money cheats are allowed, so you can't set your funds to <b class="money">§16,000</b>. Treat <b class="money">§16,000</b> as a spend limit — leave §4,000 untouched.</span></li>
+        </ul>
+        <details class="full">
+          <summary>Read the full reply</summary>
+          <p class="copied-as">Copied as text on November 25, 2026. The second player's first name is replaced, and nothing else is changed. The copy dropped the numbers from the first few lines, so the numbering starts partway down.</p>
+          <ul class="answer">
 <li class="ln head"><span class="tag"></span><span class="txt">Budget</span></li>
 <li class="ln kept"><span class="tag">Rule 1, the budget</span><span class="txt">Each player gets <b class="money">§16,000</b> total to spend, lot included. Final lot value must be <b class="money">§16,000</b> or less.</span></li>
 <li class="ln added"><span class="tag">Added</span><span class="txt">Everyone builds on the same lot: Bargain Bend in Willow Creek, Foundry Cove. It's a 30x20 empty lot for §2,000, so you have §14,000 left to build with.</span></li>
@@ -274,14 +291,21 @@ footer p{max-width:none}
 <li class="ln host"><span class="tag">Hosting</span><span class="txt">18. Vote on livability, budget, and orange commitment.</span></li>
 <li class="ln kept"><span class="tag">Rule 3</span><span class="txt">19. The winner hosts the next round and picks the next color.</span></li>
 <li class="ln note"><span class="tag">Muse's note</span><span class="txt">I verified Bargain Bend is §2,000 for a 30x20 lot.</span></li>
-        </ul>
+          </ul>
+        </details>
       </article>
 
       <article class="panel" id="p-c" aria-labelledby="pc-title">
         <h3 id="pc-title">What came back from the card</h3>
         <p class="takeaway">The same budget answer as the conversation. The card carried both numbers before it traveled. All 5 of my rules are in the list, with 6 limits I never wrote. 2 of them were already on the card.</p>
-        <p class="copied-as">Copied as text on November 25, 2026. The second player's first name is replaced, and nothing else is changed. The copy dropped the numbers from the first few lines, so the numbering starts partway down.</p>
-        <ul class="answer">
+        <ul class="answer telling">
+<li class="ln kept"><span class="tag">Rule 1, the budget</span><span class="txt">4. Start fresh at <b class="money">§20,000</b>. Spend no more than <b class="money">§16,000</b> total, lot included.</span></li>
+<li class="ln note"><span class="tag">Budget note</span><span class="txt">5. That means §2,000 for the lot + §14,000 max for the house and furnishings. You must finish with at least §4,000 left untouched.</span></li>
+        </ul>
+        <details class="full">
+          <summary>Read the full reply</summary>
+          <p class="copied-as">Copied as text on November 25, 2026. The second player's first name is replaced, and nothing else is changed. The copy dropped the numbers from the first few lines, so the numbering starts partway down.</p>
+          <ul class="answer">
 <li class="ln head"><span class="tag"></span><span class="txt">Goal</span></li>
 <li class="ln note"><span class="tag">Goal</span><span class="txt">Build a livable starter home in 60 minutes, with exactly one offensively orange room.</span></li>
 <li class="ln head"><span class="tag"></span><span class="txt">The build</span></li>
@@ -305,10 +329,11 @@ footer p{max-width:none}
 <li class="ln host"><span class="tag">Hosting</span><span class="txt">12. Everyone votes for one build — not your own. Vote on livability, staying in budget, and orange commitment. Most votes wins.</span></li>
 <li class="ln head"><span class="tag"></span><span class="txt">Next round</span></li>
 <li class="ln kept"><span class="tag">Rule 3</span><span class="txt">13. The winner hosts the next round and picks the next challenge color.</span></li>
-        </ul>
+          </ul>
+        </details>
       </article>
 
-      <p class="key">A line marked Rule is one of my 5. Added marks a limit on building or buying that I never set. Hosting lines cover submitting and voting, and they are not counted. These marks follow the first scoring pass.</p>
+      <p class="key">In a full reply, a line marked Rule is one of my 5. Added marks a limit on building or buying that I never set. Hosting lines cover submitting and voting, and they are not counted. These marks follow the first scoring pass.</p>
     </div>
   </div>
 </section>
@@ -325,6 +350,20 @@ footer p{max-width:none}
     <dd>Whoever hosts picks which add-on packs are allowed, so base game only is gone and 4 fixed rules are left.</dd>
   </dl>
   <p>In every case the color belongs to the next host, and orange is my pick. What counts as offensive is the players' call. Think of the opposite of landlord beige.</p>
+</section>
+
+<section class="carried" aria-labelledby="carried-title">
+  <h2 id="carried-title">The card kept my name. Muse picked the lot.</h2>
+  <div class="table-wrap" tabindex="0" role="region" aria-labelledby="carried-title">
+    <table>
+      <thead><tr><td></td><th scope="col">On the challenge card</th><th scope="col">In the rules sent to players</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Creator credit</th><td>Created by Melissa</td><td>Created by Melissa</td></tr>
+        <tr><th scope="row">Where to build</th><td>The host chooses the lot</td><td>Everyone builds on Bargain Bend</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="fine">All 3 card handoffs went this way. <a href="https://github.com/beegrrl/can-you-play-my-challenge/blob/main/runs/second-account/c2-C.txt">Read the case 2 exchange</a>.</p>
 </section>
 
 <section class="counts" aria-labelledby="counts-title">
@@ -345,9 +384,7 @@ footer p{max-width:none}
   </div>
   <p class="fine">A limit is counted when a line in Muse's list forbids or requires something I never set. It has to be about the build or about what a player buys. Lines about submitting and voting are hosting details, and they stay out of the count. Each distinct limit counts once in a run.</p>
 
-  <p>That zero covers the 2 choices I left open, the color and the packs. Muse left both alone. The cards offered the host more choices than I did. When Muse wrote each card, it added its own list of choices left to the host, and the lot was on all 3. All 3 lists that came back picked the lot anyway, and each picked Bargain Bend. Who hosts next and how to vote were decided too. Those choices were Muse's additions to the card, so they sit outside the count.</p>
-
-  <p>The card is also the only handoff that carried my name. All 3 cards say “Created by Melissa”, and all 3 lists that came back from a card kept that line. The other 6 lists name the second player as host and no creator, because those handoffs never said who made the challenge.</p>
+  <p>That 0 covers the 2 choices I left open, the color and the packs. Muse left both alone. The lot, who hosts next and how to vote were Muse's additions to the card, and the lists decided all 3, so they sit outside the count. The 6 lists that did not start from a card name the second player as host and no creator, because those handoffs never said who made the challenge.</p>
 
   <h3 id="order-title">The 9 runs, in the order they ran</h3>
   <div class="table-wrap order" tabindex="0" role="region" aria-labelledby="order-title">
