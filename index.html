@@ -140,6 +140,15 @@ footer p{max-width:none}
   .handoff-card{padding:18px 16px}
 }
 @media print{.switch,.copy,.skip{display:none}.panel{display:block!important}}
+
+.room-figure{margin:24px 0}
+.room-pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.room-label{font-size:1rem;font-weight:650;margin:0 0 7px}
+.room-pair img{display:block;width:100%;height:auto;border-radius:3px}
+.room-quote{font-size:1rem;line-height:1.4;margin:10px 0 0}
+.room-figure figcaption{margin-top:10px;color:var(--muted);font-size:.875rem}
+@media(max-width:520px){.room-pair{gap:10px}.room-label,.room-quote{font-size:.94rem}}
+@media(max-width:350px){.room-pair{grid-template-columns:1fr;gap:14px}}
 </style>
 </head>
 <body>
@@ -149,6 +158,21 @@ footer p{max-width:none}
 <h1><span>Every rule I handed over came back.</span> <span>So did at least 55 I never wrote.</span></h1>
 <p class="intro">I made a build challenge for The Sims 4 with Muse, Meta's AI agent. I made it 3 times, changing 1 move each time, and handed each version 3 ways to a second Muse account that had never seen it. Each time, that account was asked for the rules to send to players. I wrote my predictions before any run. Most of them were wrong.</p>
 <p class="status">The 55 is the lower of 2 counts across the 9 lists, and the same limit often counts in several.</p>
+<figure class="room-figure">
+  <div class="room-pair">
+    <div>
+      <p class="room-label">What I asked for</p>
+      <img src="assets/orange-room-prompt.webp" width="887" height="887" alt="A cartoon living room with an orange-wedge sofa, 1 orange wall and 4 neutral furnishings.">
+      <p class="room-quote">“Exactly one room has to be offensively orange.”</p>
+    </div>
+    <div>
+      <p class="room-label">What Muse added</p>
+      <img src="assets/orange-room-run-1.webp" width="887" height="887" alt="The walls and floor are orange. So are all 5 furnishings: the orange-wedge sofa, floor lamp, wall clock, coffee table and ottoman.">
+      <p class="room-quote">“That room needs orange walls and an orange floor, plus at least 5 orange objects.”</p>
+    </div>
+  </div>
+  <figcaption>Illustration based on <a href="https://github.com/beegrrl/can-you-play-my-challenge/blob/main/runs/second-account/c1-A.txt">run 1</a>.</figcaption>
+</figure>
 
 <section class="case" aria-labelledby="case-title">
   <div class="case-card">

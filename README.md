@@ -44,6 +44,7 @@ scoring/                    both passes' sheets, the script, its tests and resul
 step0-notes.md              what Muse can hand over
 index.html                  the page
 og.png                      the picture a link preview shows
+assets/                     the 2 drawings at the top of the page
 ```
 
 ## Check the scoring
