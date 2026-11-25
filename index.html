@@ -162,7 +162,9 @@ footer p{max-width:none}
 .opening-prose{font-size:1.0625rem;line-height:1.5}
 .opening-prose strong{font-weight:650}
 .author-note{border-inline-start:3px solid var(--orange);padding-inline-start:16px;font-size:1rem;line-height:1.45}
-.author-note h2{font-size:1.06rem;letter-spacing:-.01em;margin:0 0 6px}
+.author-note-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:6px}
+.author-note-head h2{font-size:1.06rem;letter-spacing:-.01em;margin:0}
+.author-note-head a{font-size:.875rem;color:var(--muted)}
 .author-note a{text-decoration-thickness:1px;text-underline-offset:.16em}
 .author-note a:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
 @media(max-width:720px){.study-opening{grid-template-columns:1fr;gap:17px}.author-note{max-width:60ch}}
@@ -179,8 +181,11 @@ footer p{max-width:none}
     <p class="opening-prose"><strong>I used Muse on my Mac</strong> to make 3 versions of a starter-home challenge in The Sims 4. Muse is Meta's AI agent. Each version called for 1 offensively orange room. I passed each version to a second account 3 ways. I wrote my predictions before any run. Most of them were wrong.</p>
   </div>
   <aside class="author-note" aria-labelledby="author-note-title">
-    <h2 id="author-note-title">Why I tried it</h2>
-    <p><a href="https://www.linkedin.com/in/beegirl/">I ran the global community for The Sims at Electronic Arts.</a> Developer betas were a big part of my work at Oracle. At <a href="https://chain.link/">Chainlink</a>, I ran beta groups in developer marketing and brought their feedback to Product and Engineering.</p>
+    <div class="author-note-head">
+      <h2 id="author-note-title">Why I tried it</h2>
+      <a href="https://www.linkedin.com/in/beegirl/" aria-label="Melissa Thorne on LinkedIn">LinkedIn</a>
+    </div>
+    <p>I ran the global community for The Sims at Electronic Arts. Developer betas were a big part of my work at Oracle. At Chainlink, I ran beta groups in developer marketing and brought their feedback to Product and Engineering.</p>
   </aside>
 </div>
 <p class="status">The 55 is the lower of 2 counts across the 9 lists, and the same limit often counts in several.</p>
