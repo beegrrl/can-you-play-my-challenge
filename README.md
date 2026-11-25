@@ -1,4 +1,4 @@
-# Can you play my challenge?
+# One Offensively Orange Room
 
 A test of what survives when one person hands a challenge to another through an AI agent.
 
