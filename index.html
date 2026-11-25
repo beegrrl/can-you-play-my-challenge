@@ -52,7 +52,8 @@ section{padding:42px 0;border-top:1px solid var(--line)}
 .case-card{background:var(--card);border:1px solid var(--ink);border-radius:4px;padding:24px 26px 20px;max-width:680px}
 .case-card h2{font-size:clamp(1.6rem,3.4vw,2.2rem);margin-bottom:10px}
 .case-card p:last-child{margin-bottom:0}
-.size{color:var(--muted);margin:16px 0 44px}
+.card-links a{margin-right:22px;display:inline-block}
+.case{margin-bottom:44px}
 
 .compare{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,9fr);gap:30px 36px;margin-top:22px;align-items:start}
 .mine{background:var(--card);border:1px solid var(--line);border-radius:4px;padding:18px 20px;position:sticky;top:18px}
@@ -156,7 +157,7 @@ footer p{max-width:none}
 <header class="top"><span class="wordmark"><span class="mark" aria-hidden="true"></span>Can you play my challenge?</span><a href="https://beegrrl.github.io/">Melissa Thorne</a></header>
 <main id="main">
 <h1><span>Every rule I handed over came back.</span> <span>So did at least 55 I never wrote.</span></h1>
-<p class="intro">I made a build challenge for The Sims 4 with Muse, Meta's AI agent. I made it 3 times, changing 1 move each time, and handed each version 3 ways to a second Muse account that had never seen it. Each time, that account was asked for the rules to send to players. I wrote my predictions before any run. Most of them were wrong.</p>
+<p class="intro">If you invent a challenge and I host the next round, whose rules do the players get? I ran the global community for The Sims at Electronic Arts, so that is where I tested it. I made a starter-home challenge with 1 offensively orange room in one account of Muse, Meta's AI agent. Then I handed it to a second account 9 times. I wrote my predictions before any run. Most of them were wrong.</p>
 <p class="status">The 55 is the lower of 2 counts across the 9 lists, and the same limit often counts in several.</p>
 <figure class="room-figure">
   <div class="room-pair">
@@ -177,10 +178,11 @@ footer p{max-width:none}
 <section class="case" aria-labelledby="case-title">
   <div class="case-card">
     <h2 id="case-title">One Offensively Orange Room</h2>
-    <p>Asked for the rules to send to players, the second account's Muse returned every rule it had been shown and left my 2 open choices to the host. The 3 lists that started from a card kept my name on the challenge, and all 3 picked a lot the card had left to the host. Every list also came back with limits I never wrote, between 1 and 8 of them by the lower count. From the second run on, it was writing from its memory of the first.</p>
-    <p><a href="https://github.com/beegrrl/can-you-play-my-challenge/tree/main/runs/second-account">Read all 9 answers</a></p>
+    <p>Every rule the second account was shown came back. Every list also added limits I never wrote, between 1 and 8 of them by the lower count.</p>
+    <p>All 3 cards named me as the creator and left the next host free to choose where to build. Muse kept my name and picked the same lot every time.</p>
+    <p>If I were featuring a fan's challenge, I'd ask the creator which version they wanted people to play and link straight to their card. The host can pick a different lot next week. That's part of the fun.</p>
+    <p class="card-links"><a href="#card-title">Try the challenge card</a><a href="https://github.com/beegrrl/can-you-play-my-challenge/tree/main/runs/second-account">Read all 9 answers</a></p>
   </div>
-  <p class="size">It is the size of challenge a Muse community could run in a week. 5 rules and a 60-minute build.</p>
 </section>
 
 <section aria-labelledby="budget-title">
@@ -316,11 +318,11 @@ footer p{max-width:none}
   <p>One Offensively Orange Room is a starter-home build challenge. I wrote it for this test and made it with Muse 3 times, changing 1 move each time.</p>
   <dl>
     <dt>Case 1, nothing changes</dt>
-    <dd>The 5 rules, with a budget of §20,000.</dd>
+    <dd>The 5 rules, with a budget of §20,000. Base game only means no add-on packs.</dd>
     <dt>Case 2, the budget drops</dt>
     <dd>I set §20,000 and changed it to §16,000 partway through the chat. This is the case shown above.</dd>
     <dt>Case 3, the host decides</dt>
-    <dd>Whoever hosts picks the packs, so base game only is gone and 4 fixed rules are left.</dd>
+    <dd>Whoever hosts picks which add-on packs are allowed, so base game only is gone and 4 fixed rules are left.</dd>
   </dl>
   <p>In every case the color belongs to the next host, and orange is my pick. What counts as offensive is the players' call. Think of the opposite of landlord beige.</p>
 </section>
@@ -370,7 +372,7 @@ footer p{max-width:none}
 
   <h3 id="passes-title">Where the 2 scoring passes disagree</h3>
   <p>Each answer was scored twice, and the second pass never saw the first. Both passes agree on which rules came back: 35 of 35 shown rules and 38 of 42 final rules. They disagree on 8 scores, and 7 of those are counts of added limits.</p>
-  <p>The first pass counted 55 added limits and the second counted 68. The second pass splits some lines in 2, such as orange walls and a minimum of 5 orange objects. It also counts “Start from a fresh household” as a limit. The first pass counts the ban on CC and mods, and the second reads that ban as part of base game only. Every other count on this page is from the first pass, which is lower in every run where they differ.</p>
+  <p>The first pass counted 55 added limits and the second counted 68. The second pass splits some lines in 2, such as orange walls and a minimum of 5 orange objects. It also counts “Start from a fresh household” as a limit. The first pass counts the ban on custom content (CC) and mods, and the second reads that ban as part of base game only. Every other count on this page is from the first pass, which is lower in every run where they differ.</p>
   <p class="fine">The other disagreement is in run 7. The list says “no extra funds” where my rule says no money cheats. The first pass scored that as changed and the second scored it as missing. <a href="https://github.com/beegrrl/can-you-play-my-challenge/tree/main/scoring">Both sheets and all 8 differences are in the repo</a>.</p>
 </section>
 
