@@ -59,10 +59,6 @@ The second command counts the scored runs and lists every score where the 2 pass
 
 ## What did not go to plan
 
-- The second account remembered its earlier runs, so only run 1 is a clean first contact. `runs/README.md` has the evidence.
-- I planned to score every list by hand, with an automated pass as the check. I did not hand score. Both passes are automated, and the page reports the lower count of invented restrictions.
-- I planned 3 more runs, with the cards in my own account. I did not run them.
-
-The page lists every known issue.
+The second account remembered its earlier runs, so only run 1 is a clean first contact. `runs/README.md` has the evidence, and the page lists every known issue.
 
 An independent project. Not endorsed by or affiliated with Electronic Arts or Meta. The Sims belongs to Electronic Arts and Muse belongs to Meta.

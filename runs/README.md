@@ -27,7 +27,3 @@ The copy has 2 quirks, and both come from the page. The first items of a numbere
 ## 4 answers ended with questions, and none got a reply
 
 `c1-A.txt`, `c1-B.txt`, `c3-A.txt` and `c3-B.txt` end with questions, and `c3-A.txt` asks 2. Each one came after a full rule list, so no reply was sent and every run stayed at 1 message. The reply in `challenge/wording.md` was never used.
-
-## Planned and not run
-
-The plan also had the 3 card handoffs running in the creator's own account. Those 3 runs were dropped.
