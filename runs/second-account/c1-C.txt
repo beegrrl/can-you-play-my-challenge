@@ -1,0 +1,64 @@
+Date: 2026-11-25
+Surface: Muse on the web, in Chrome
+Run: c1-C, second account
+
+12:34 AM
+You:
+Starter-Home Build Challenge — The Sims 4
+Created by Melissa
+
+Goal: Build a livable starter home in 60 minutes, for §20,000, with exactly one offensively orange room.
+
+Fixed rules:
+- 60-minute speed build — build stops when the timer ends.
+- Budget: §20,000 total, house + furnishings.
+- Base game only — no packs, no CC, no mods for the build.
+- No money cheats — no motherlode, rosebud, kaching, or money X. Start fresh: a new household starts at §20,000.
+- Exactly one room must be offensively orange. One room only.
+- Next host picks the color.
+
+Choices left to the host:
+- Lot: pick the lot and lot size — same lot for everyone.
+- Next host: decide who hosts next — the winner, or rotation.
+- Voting: decide how voting works and what you vote on — for example livability, budget, and orange commitment — and whether players can vote for their own build.
+- Proof: decide what proof players share — for example a final budget screenshot and a screenshot of the orange room.
+
+I want to host this. Can you give me the rules I should send to the players?
+
+Here you go — copy and send this as-is:
+
+The Sims 4 Starter Home Challenge, Round 1: Offensively Orange
+Created by Melissa
+Host: [second player's first name]
+
+Budget
+
+Each player gets §20,000 total, lot included. Final lot value must be §20,000 or less.
+Everyone builds on the same lot: Bargain Bend in Willow Creek, Foundry Cove. It's a 30x20 empty lot for §2,000, so you have §18,000 left to build with.
+Start from the empty lot. No bulldozing a prebuilt house and keeping the furniture.
+Base game only
+4. Base game only. No expansions, game packs, stuff packs, kits, CC, or mods.
+5. No Gallery downloads. Build it yourself from scratch.
+6. No money cheats — no motherlode, rosebud, kaching, or money X — and no freerealestate. Start fresh: a new household starts at §20,000. bb.moveobjects is allowed for placement only.
+
+Time limit
+7. It's a 60-minute speed build. Build stops when the timer ends — no finishing touches after.
+
+The house
+8. Build for one Sim. It has to be a real, livable starter home with a bed, a bathroom with toilet, shower or tub, and sink, a kitchen with fridge, stove, counter, and sink, plus seating, lighting, walls, a roof, and doors.
+9. One story or two, your choice, as long as it fits the budget.
+
+The orange room
+10. Exactly one interior room must be offensively orange.
+11. That room needs orange walls and an orange floor, plus at least 5 orange objects. It should be obvious from a screenshot.
+12. No other room can have orange walls or flooring, or more than one small orange item. The exterior cannot be orange either.
+13. An open-plan kitchen and living area counts as one room, so pick your orange room carefully.
+
+Submitting
+14. Send screenshots of the exterior, the floor plan, your orange room, and the final lot value showing §20,000 or less.
+15. Deadline: [add your date here]
+
+Judging
+16. Everyone votes, but you cannot vote for yourself.
+17. Vote on livability, budget, and orange commitment.
+18. The winner hosts the next round and picks the next color.
