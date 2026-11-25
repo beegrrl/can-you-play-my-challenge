@@ -43,6 +43,7 @@ runs/                       Muse's answers, and how they were saved
 scoring/                    both passes' sheets, the script, its tests and results.json
 step0-notes.md              what Muse can hand over
 index.html                  the page
+og.png                      the picture a link preview shows
 ```
 
 ## Check the scoring
