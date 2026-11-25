@@ -4,12 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Can you play my challenge? | A handoff test</title>
-<meta name="description" content="I handed 1 build challenge from one AI agent account to another, 9 ways, and counted which of my rules arrived.">
+<meta name="description" content="I handed 1 build challenge from one AI agent account to another, 9 ways, to see which of my rules arrived.">
 <meta name="author" content="Melissa Thorne">
 <meta name="robots" content="noindex">
 <link rel="canonical" href="https://beegrrl.github.io/can-you-play-my-challenge/">
 <meta property="og:title" content="Can you play my challenge? | A handoff test">
-<meta property="og:description" content="I handed 1 build challenge from one AI agent account to another, 9 ways, and counted which of my rules arrived.">
+<meta property="og:description" content="I handed 1 build challenge from one AI agent account to another, 9 ways, to see which of my rules arrived.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://beegrrl.github.io/can-you-play-my-challenge/">
 <link rel="icon" type="image/svg+xml" href="https://beegrrl.github.io/favicon.svg">
@@ -92,8 +92,8 @@ tfoot th,tfoot td{font-weight:700;border-bottom:0;border-top:2px solid var(--ink
 .counts table{min-width:640px}
 .order table{min-width:620px}
 
-.memory ul,.how ul,.issues ul{padding-left:1.25rem;margin:8px 0 16px;max-width:68ch}
-.memory li,.how li,.issues li{margin:0 0 10px}
+.memory ul,.how ul,.issues ul,.host ul{padding-left:1.25rem;margin:8px 0 16px;max-width:68ch}
+.memory li,.how li,.issues li,.host li{margin:0 0 10px}
 
 .bet{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px 34px;padding:20px 0;border-top:1px solid var(--line)}
 .bet:first-of-type{margin-top:18px}
@@ -107,8 +107,9 @@ tfoot th,tfoot td{font-weight:700;border-bottom:0;border-top:2px solid var(--ink
 .copy[hidden]{display:none}
 .copy-row{display:flex;align-items:center;gap:14px;margin-bottom:16px}
 
-.rules ol{padding-left:1.3rem;margin:10px 0 16px;max-width:60ch}
-.rules li{margin-bottom:6px}
+.rules dl{margin:10px 0 16px;max-width:64ch}
+.rules dt{font-weight:600;margin-top:12px}
+.rules dd{margin:2px 0 0}
 
 footer{border-top:1px solid var(--line);padding-top:22px;padding-bottom:40px;font-size:.92rem;color:var(--muted)}
 footer p{max-width:none}
@@ -139,14 +140,14 @@ footer p{max-width:none}
 <a class="skip" href="#main">Skip to the page</a>
 <header class="top"><span class="wordmark"><span class="mark" aria-hidden="true"></span>Can you play my challenge?</span><a href="https://beegrrl.github.io/">Melissa Thorne</a></header>
 <main id="main">
-<h1><span>Every rule I handed over came back.</span> <span>So did 55 I never wrote.</span></h1>
+<h1><span>Every rule I handed over came back.</span> <span>So did at least 55 I never wrote.</span></h1>
 <p class="intro">I made a build challenge for The Sims 4 with Muse, Meta's AI agent. Then a second Muse account, one that had never seen the challenge, got it handed over 9 ways and was asked for the rules to send to players. I wrote my predictions before any run. Most of them were wrong.</p>
-<p class="status">The counts on this page come from an automated pass over the saved answers. My own hand count is next, and this line changes when it lands.</p>
+<p class="status">2 automated passes scored every answer separately. They agree on which rules came back and differ on how many limits were added, so this page uses the lower count.</p>
 
 <section class="case" aria-labelledby="case-title">
   <div class="case-card">
     <h2 id="case-title">One Offensively Orange Room</h2>
-    <p>Asked for the rules to send to players, the second account's Muse returned every rule it had been shown and left my 2 open choices to the host. Every list also came back with between 1 and 8 limits I never wrote. From the second run on, it was writing from its memory of the first.</p>
+    <p>Asked for the rules to send to players, the second account's Muse returned every rule it had been shown and left my 2 open choices to the host. Every list also came back with limits I never wrote, between 1 and 8 of them by the lower count. From the second run on, it was writing from its memory of the first.</p>
     <p><a href="https://github.com/beegrrl/can-you-play-my-challenge/tree/main/runs/second-account">Read all 9 answers</a></p>
   </div>
   <p class="size">It is the size of challenge a Muse community could run in a week. 5 rules and a 60-minute build.</p>
@@ -179,7 +180,7 @@ footer p{max-width:none}
       <article class="panel" id="p-a" aria-labelledby="pa-title">
         <h3 id="pa-title">What came back from the opening prompt</h3>
         <p class="takeaway">The old budget came back, as it had to. This handoff never carried the change. The list also has rules 4 and 5, which this handoff never carried either. Run 1 shows Muse adds a ban on money cheats by itself. The 60-minute line matches run 2 word for word, so it came from the account's memory. 8 limits here are ones I never wrote.</p>
-        <p class="copied-as">Copied as text on November 25, 2026. The second player's first name is replaced, and nothing else is changed.</p>
+        <p class="copied-as">Copied as text on November 25, 2026. The second player's first name is replaced, and nothing else is changed. The copy dropped the numbers from the first few lines, so the numbering starts partway down.</p>
         <ul class="answer">
 <li class="ln head"><span class="tag"></span><span class="txt">Budget</span></li>
 <li class="ln old"><span class="tag">Rule 1, old budget</span><span class="txt">Each player gets <b class="money">§20,000</b> total, lot included. Final lot value must be <b class="money">§20,000</b> or less.</span></li>
@@ -212,7 +213,7 @@ footer p{max-width:none}
       <article class="panel" id="p-b" aria-labelledby="pb-title">
         <h3 id="pb-title">What came back from the full conversation</h3>
         <p class="takeaway">§16,000 arrived, as a spending limit. §20,000 is here too, named as the money a new household starts with. All 5 of my rules are in the list, with 8 limits I never wrote.</p>
-        <p class="copied-as">Copied as text on November 25, 2026. The second player's first name is replaced, and nothing else is changed.</p>
+        <p class="copied-as">Copied as text on November 25, 2026. The second player's first name is replaced, and nothing else is changed. The copy dropped the numbers from the first few lines, so the numbering starts partway down.</p>
         <ul class="answer">
 <li class="ln head"><span class="tag"></span><span class="txt">Budget</span></li>
 <li class="ln kept"><span class="tag">Rule 1, the budget</span><span class="txt">Each player gets <b class="money">§16,000</b> total to spend, lot included. Final lot value must be <b class="money">§16,000</b> or less.</span></li>
@@ -247,7 +248,7 @@ footer p{max-width:none}
       <article class="panel" id="p-c" aria-labelledby="pc-title">
         <h3 id="pc-title">What came back from the card</h3>
         <p class="takeaway">The same budget answer as the conversation. The card carried both numbers before it traveled. All 5 of my rules are in the list, with 6 limits I never wrote. 2 of them were already on the card.</p>
-        <p class="copied-as">Copied as text on November 25, 2026. The second player's first name is replaced, and nothing else is changed.</p>
+        <p class="copied-as">Copied as text on November 25, 2026. The second player's first name is replaced, and nothing else is changed. The copy dropped the numbers from the first few lines, so the numbering starts partway down.</p>
         <ul class="answer">
 <li class="ln head"><span class="tag"></span><span class="txt">Goal</span></li>
 <li class="ln note"><span class="tag">Goal</span><span class="txt">Build a livable starter home in 60 minutes, with exactly one offensively orange room.</span></li>
@@ -275,17 +276,31 @@ footer p{max-width:none}
         </ul>
       </article>
 
-      <p class="key">A line marked Rule is one of my 5. Added marks a limit on building or buying that I never set. Hosting lines cover submitting and voting, and they are not counted.</p>
+      <p class="key">A line marked Rule is one of my 5. Added marks a limit on building or buying that I never set. Hosting lines cover submitting and voting, and they are not counted. These marks follow the first scoring pass.</p>
     </div>
   </div>
 </section>
 
+<section class="rules" aria-labelledby="rules-title">
+  <h2 id="rules-title">The same challenge, made 3 times</h2>
+  <p>One Offensively Orange Room is a starter-home build challenge. I wrote it for this test and made it with Muse 3 times, changing 1 move each time.</p>
+  <dl>
+    <dt>Case 1, nothing changes</dt>
+    <dd>The 5 rules, with a budget of §20,000.</dd>
+    <dt>Case 2, the budget drops</dt>
+    <dd>I set §20,000 and changed it to §16,000 partway through the chat. This is the case shown above.</dd>
+    <dt>Case 3, the host decides</dt>
+    <dd>Whoever hosts picks the packs, so base game only is gone and 4 fixed rules are left.</dd>
+  </dl>
+  <p>In every case the color belongs to the next host, and orange is my pick. What counts as offensive is the players' call. Think of the opposite of landlord beige.</p>
+</section>
+
 <section class="counts" aria-labelledby="counts-title">
   <h2 id="counts-title">The counts, by handoff</h2>
-  <p>Each handoff ran 3 times, once for each case. Handoff A cannot carry a rule I added later, so kept rules are counted 2 ways.</p>
+  <p>Each handoff ran 3 times, once for each case. Handoff A cannot carry a rule I added later, so kept rules are counted 2 ways. The first count covers the final rules a handoff carried. The second covers all of them.</p>
   <div class="table-wrap" tabindex="0" role="region" aria-labelledby="counts-title">
     <table>
-      <thead><tr><th scope="col">Handoff</th><th scope="col">Rules it was shown, and kept</th><th scope="col">My final rules, kept</th><th scope="col">Limits I never wrote</th><th scope="col">Open choices it closed</th><th scope="col">Questions before the rules</th><th scope="col">Budget in case 2</th></tr></thead>
+      <thead><tr><th scope="col">Handoff</th><th scope="col">Final rules it was shown, kept</th><th scope="col">All my final rules, kept</th><th scope="col">Limits I never wrote</th><th scope="col">Open choices it closed</th><th scope="col">Questions before the rules</th><th scope="col">Budget in case 2</th></tr></thead>
       <tbody>
 <tr><th scope="row">A: opening prompt alone</th><td>7 of 7</td><td>10 of 14</td><td>17</td><td>0</td><td>0</td><td>§20,000</td></tr>
 <tr><th scope="row">B: full conversation</th><td>14 of 14</td><td>14 of 14</td><td>19</td><td>0</td><td>0</td><td>Both numbers</td></tr>
@@ -296,14 +311,14 @@ footer p{max-width:none}
       </tfoot>
     </table>
   </div>
-  <p class="fine">A limit is counted when a line in Muse's list forbids or requires something I never set. It has to be about the build or about what a player buys. Lines about submitting and voting are hosting details, and they stay out of the count.</p>
+  <p class="fine">A limit is counted when a line in Muse's list forbids or requires something I never set. It has to be about the build or about what a player buys. Lines about submitting and voting are hosting details, and they stay out of the count. Each distinct limit counts once in a run.</p>
 
   <p>One count needs a caveat. “Open choices it closed” covers the 2 choices I left open: the color and the packs. Muse left both alone. The cards Muse wrote for me offered the host 4 more: the lot, who hosts next, voting and proof. In all 3 card runs the second account settled those 4 for the host. They were never my choices, so they sit outside the count.</p>
 
   <h3 id="order-title">The 9 runs, in the order they ran</h3>
   <div class="table-wrap order" tabindex="0" role="region" aria-labelledby="order-title">
     <table>
-      <thead><tr><th scope="col">Run</th><th scope="col">Case</th><th scope="col">Handed over</th><th scope="col">Shown rules kept</th><th scope="col">Final rules kept</th><th scope="col">Limits added</th><th scope="col">Ended with a question</th></tr></thead>
+      <thead><tr><th scope="col">Run</th><th scope="col">Case</th><th scope="col">Handed over</th><th scope="col">Shown final rules kept</th><th scope="col">All final rules kept</th><th scope="col">Limits added</th><th scope="col">Ended with a question</th></tr></thead>
       <tbody>
 <tr><td>1</td><th scope="row">Case 1, nothing changes</th><td>Opening prompt alone</td><td>3 of 3</td><td>4 of 5</td><td>8</td><td>Yes</td></tr>
 <tr><td>2</td><th scope="row">Case 1, nothing changes</th><td>Full conversation</td><td>5 of 5</td><td>5 of 5</td><td>8</td><td>Yes</td></tr>
@@ -318,6 +333,13 @@ footer p{max-width:none}
     </table>
   </div>
   <p class="fine">All 9 ran on November 25, 2026, from 12:30 to 12:45 a.m. Pacific. Each one got a new side chat.</p>
+  <p class="fine">Run 1 was shown rules 1 to 3. Its list also bans money cheats, which is my rule 4, so it kept 4 of 5 without being shown the 4th. Muse added that ban unprompted.</p>
+  <p class="fine">Run 4 was shown §20,000, the budget I later dropped. That number is not a final rule, so run 4 was shown 2 of them.</p>
+
+  <h3 id="passes-title">Where the 2 scoring passes disagree</h3>
+  <p>Each answer was scored twice, and the second pass never saw the first. Both passes agree on which rules came back: 35 of 35 shown rules and 38 of 42 final rules. They disagree on 8 scores, and 7 of those are counts of added limits.</p>
+  <p>The first pass counted 55 added limits and the second counted 68. The second pass splits some lines in 2, such as orange walls and a minimum of 5 orange objects. It also counts “Start from a fresh household” as a limit. The first pass counts the ban on CC and mods, and the second reads that ban as part of base game only. Every other count on this page is from the first pass, which is lower in every run where they differ.</p>
+  <p class="fine">The other disagreement is in run 7. The list says “no extra funds” where my rule says no money cheats. The first pass scored that as changed and the second scored it as missing. <a href="https://github.com/beegrrl/can-you-play-my-challenge/tree/main/scoring">Both sheets and all 8 differences are in the repo</a>.</p>
 </section>
 
 <section class="memory" aria-labelledby="memory-title">
@@ -333,7 +355,7 @@ footer p{max-width:none}
 
 <section aria-labelledby="bets-title">
   <h2 id="bets-title">What I bet, and what happened</h2>
-  <p>These 5 bets were committed before any run, and the words are unchanged. The verdicts follow the automated count. <a href="https://github.com/beegrrl/can-you-play-my-challenge/blob/main/predictions.md">Read the full predictions file</a>.</p>
+  <p>These 5 bets were committed before any run, and the words are unchanged. The verdicts are the same under both scoring passes. <a href="https://github.com/beegrrl/can-you-play-my-challenge/blob/main/predictions.md">Read the full predictions file</a>.</p>
   <div class="bet">
     <p class="said">“The budget in case 2. The full conversation brings back §20,000, or lists both numbers to play it safe. The card brings back §16,000 clean.”</p>
     <div><p class="verdict">Half right</p><p>Both lists gave §16,000 as the spending limit and named §20,000 as the money a new household starts with. The card was not clean. It carried both numbers before it traveled.</p></div>
@@ -344,7 +366,7 @@ footer p{max-width:none}
   </div>
   <div class="bet">
     <p class="said">“Rules I never set. At least 5 of the 9 lists will sneak in a Sims 4 starter-home rule I never wrote, like no custom content, no build cheats, a set lot size or required rooms.”</p>
-    <div><p class="verdict">Right, and I guessed low</p><p>9 of 9 lists did it, with 55 added limits in all. A ban on custom content, a set lot and required rooms all showed up.</p></div>
+    <div><p class="verdict">Right, and I guessed low</p><p>9 of 9 lists did it, with at least 55 added limits in all. A ban on custom content, a set lot and required rooms all showed up.</p></div>
   </div>
   <div class="bet">
     <p class="said">“The packs in case 3. Muse decides for the host. It likely defaults to base game or recommends specific packs instead of leaving it open.”</p>
@@ -354,6 +376,18 @@ footer p{max-width:none}
     <p class="said">“Questions. Muse asks one before giving the rules 5 or 6 times out of 9, mostly when the handoff spells out that the host still has to pick a color or packs.”</p>
     <div><p class="verdict">Wrong</p><p>It gave the rules first every time. 4 of the 9 lists ended with a question after the rules.</p></div>
   </div>
+</section>
+
+<section class="host" aria-labelledby="host-title">
+  <h2 id="host-title">What I would tell the next host</h2>
+  <p>I would send these 4 notes along with the card.</p>
+  <ul>
+    <li>Read the list against the card before it goes to players. I wrote 5 rules, and the longest list that came back has 19 numbered lines.</li>
+    <li>Decide which additions to keep. A shared lot and a list of required rooms are fair calls for a build challenge. They arrive in the same numbered list as my rules, with no mark to tell them apart.</li>
+    <li>Check every number. After I dropped the budget to §16,000, §20,000 still came back beside it in both handoffs that carried the change.</li>
+    <li>If your agent has seen an earlier round, expect it to remember. By run 4 the second account handed back a rule it had not been shown in that chat. For a weekly challenge, I would write each round's card to say what changed since the last one.</li>
+  </ul>
+  <p>A card that tells the agent to add nothing is the obvious next test. I have not run it.</p>
 </section>
 
 <section aria-labelledby="card-title">
@@ -381,19 +415,6 @@ Choices left to the host:
   <p class="fine">I asked for the goal, who made it, the fixed rules and the choices left to the host. The ban on CC and mods and all 4 host choices are Muse's additions.</p>
 </section>
 
-<section class="rules" aria-labelledby="rules-title">
-  <h2 id="rules-title">House rules</h2>
-  <p>One Offensively Orange Room is a starter-home build challenge. I wrote it for this test.</p>
-  <ol>
-    <li>Each player gets §20,000.</li>
-    <li>Base game only.</li>
-    <li>Exactly 1 room is offensively orange. The next host picks the color.</li>
-    <li>No money cheats.</li>
-    <li>It's a 60-minute speed build.</li>
-  </ol>
-  <p>Rules 1, 4 and 5 are fixed in every case. The color belongs to the next host, and orange is my pick. In case 3 the packs belong to the host too. What counts as offensive is the players' call. Think of the opposite of landlord beige.</p>
-</section>
-
 <section class="how" aria-labelledby="how-title">
   <h2 id="how-title">How the runs were done</h2>
   <ul>
@@ -402,7 +423,7 @@ Choices left to the host:
     <li>Each chat became 3 handoffs. A is my opening prompt alone. B is the conversation up to the card request. C is the card as plain text.</li>
     <li>Each handoff was pasted whole into a new side chat in the second account, as 1 message ending with a request for the rules to send to players. That account was opened the same night and ran in a browser.</li>
     <li>Every answer was copied as text and saved unedited. The second player's first name is replaced with a bracketed note.</li>
-    <li>A script reads the scoring sheets and lists every score where the automated pass and my hand count differ.</li>
+    <li>Each answer was scored twice by an AI model, a different model each time. The second worked from the saved text and <a href="https://github.com/beegrrl/can-you-play-my-challenge/blob/main/scoring/pass-2-instructions.md">a written set of definitions</a>, and never saw the first one's sheet. A script lists every score where the 2 differ.</li>
   </ul>
   <p><a href="https://github.com/beegrrl/can-you-play-my-challenge">Every prompt, card, answer and sheet is in the repo</a>.</p>
 </section>
@@ -415,7 +436,8 @@ Choices left to the host:
     <li><strong>4 follow-up questions went unanswered.</strong> Muse ended 4 lists with a question. No reply was sent, so every run is exactly 1 message. The reply I had prepared was never used.</li>
     <li><strong>The cards added limits before any handoff.</strong> A ban on CC and mods was already on the case 1 and case 2 cards. It counts as an added limit in those card runs, though the second account did not invent it.</li>
     <li><strong>My own account had memory on.</strong> Case 1 opened with Muse recalling a throwaway card from an earlier test.</li>
-    <li><strong>3 comparison runs are missing.</strong> The plan also had the 3 cards running in my own account. Those are not done.</li>
+    <li><strong>Nobody scored this by hand.</strong> 2 AI models scored each answer separately, and they disagree on 8 scores. The page uses the lower count of added limits.</li>
+    <li><strong>3 comparison runs were never run.</strong> The plan also had the 3 cards running in my own account. That account already remembers the whole challenge, so those runs would not have been a clean comparison either.</li>
     <li><strong>Copying loses detail.</strong> A copied chat keeps a card as its title alone, and the copy drops the numbers from the first items of a list.</li>
     <li><strong>This is 2 nights of 1 product.</strong> Everything ran on the Free plan on November 24 and 25, 2026. The creator chats used the Mac app and the second account used the web.</li>
   </ul>
@@ -423,7 +445,8 @@ Choices left to the host:
 
 <section aria-labelledby="notes-title">
   <h2 id="notes-title">Patch notes</h2>
-  <p><strong>November 25, 2026.</strong> First version. The counts are from the automated pass. Still to come: my hand count and the 3 comparison runs in my own account.</p>
+  <p><strong>November 25, 2026, second version.</strong> A second scoring pass was added, and the page now shows where the 2 passes disagree. The headline says at least 55 because the second pass counted 68. I dropped the hand count and the 3 comparison runs that the first version promised. The notes for the next host are new, and the 3 cases moved up the page.</p>
+  <p><strong>November 25, 2026, first version.</strong> The counts are from the automated pass. Still to come: my hand count and the 3 comparison runs in my own account.</p>
 </section>
 </main>
 <footer>

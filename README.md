@@ -2,9 +2,9 @@
 
 A test of what survives when one person hands a challenge to another through an AI agent.
 
-I made a build challenge for The Sims 4 with Muse, an AI agent from Meta. A second Muse account that has never seen the challenge gets it handed over and is asked for the rules to send to players. This repo holds every prompt, card and answer, plus the sheets I score them on.
+I made a build challenge for The Sims 4 with Muse, an AI agent from Meta. A second Muse account that has never seen the challenge gets it handed over and is asked for the rules to send to players. This repo holds every prompt, card and answer, plus the scoring sheets.
 
-**Status: 9 runs done, first counts in.** [The page is here](https://beegrrl.github.io/can-you-play-my-challenge/). Its counts come from the automated pass. My hand count is next, and so are the 3 comparison runs in my own account.
+**Status: 9 runs done and scored twice.** [The page is here](https://beegrrl.github.io/can-you-play-my-challenge/). Its numbers come from the first scoring pass, and it shows where the second pass disagrees.
 
 ## How the test works
 
@@ -14,8 +14,8 @@ I made a build challenge for The Sims 4 with Muse, an AI agent from Meta. A seco
    - Handoff A: the opening prompt alone.
    - Handoff B: the full conversation, up to the moment I ask for the card.
    - Handoff C: a card Muse makes, taken as plain text.
-4. That is 9 runs in the second account. I also run the 3 cards in my own account for comparison.
-5. I score every rule list by hand. An automated second pass scores them again.
+4. That is 9 runs in the second account.
+5. Every rule list is scored twice by an AI model, a different model each time. The second pass never sees the first one's sheet.
 
 The frozen files do not change after the runs. A new case would be a dated second run.
 
@@ -24,7 +24,7 @@ Saved text is unedited, with 1 exception. If Muse pulls a personal detail from m
 ## What gets counted
 
 - **Fixed rules kept.** Counted 2 ways: out of the rules the second account was shown, and out of my final rules. Handoff A cannot carry a rule I added later, so that miss counts against the handoff.
-- **Invented restrictions.** A limit on what a player may build or buy that I never set. The sheet also marks any that closes a choice I left open.
+- **Invented restrictions.** A limit on what a player may build or buy that I never set. Each distinct limit counts once in a run. The sheet also marks any that closes a choice I left open.
 - **Questions asked** before a usable rule list. A run stops after 3.
 - **The budget line, case 2 only.** §16,000, §20,000, both or neither.
 
@@ -40,7 +40,7 @@ challenge/case-N-expected.md  what a lossless handoff returns
 creator/                    my 3 conversations and their cards
 handoffs/                   the 9 texts pasted into the second account
 runs/                       Muse's answers, and how they were saved
-scoring/                    the sheets, the script, its tests and results.json
+scoring/                    both passes' sheets, the script, its tests and results.json
 step0-notes.md              what Muse can hand over
 index.html                  the page
 ```
@@ -52,10 +52,16 @@ python3 -m unittest discover -s scoring
 python3 scoring/build_results.py --check
 ```
 
-The second command counts the scored runs and lists every score where the 2 passes differ. Today it prints `0 runs, 12 missing` for my sheets and `9 runs, 3 missing` for the second pass.
+The second command counts the scored runs and lists every score where the 2 passes differ. Today it prints `9 runs, 0 missing` for each pass and `8 scores differ`.
+
+`scoring/pass-2-instructions.md` is the full text the second pass worked from. It was given that file, the 9 saved answers, the 3 cards and 3 blank sheets named `rules-second.csv`, `runs-second.csv` and `cards-second.csv`. Its answers are saved here as `rules-pass-2.csv`, `runs-pass-2.csv` and `card-check-pass-2.csv`, with each run id written out in full and no other change. Its card check matches `card-check.csv`.
 
 ## What did not go to plan
 
-The second account remembered its earlier runs, so only run 1 is a clean first contact. `runs/README.md` has the evidence, and the page lists every known issue.
+- The second account remembered its earlier runs, so only run 1 is a clean first contact. `runs/README.md` has the evidence.
+- I planned to score every list by hand, with an automated pass as the check. I did not hand score. Both passes are automated, and the page reports the lower count of invented restrictions.
+- I planned 3 more runs, with the cards in my own account. I did not run them.
+
+The page lists every known issue.
 
 An independent project. Not endorsed by or affiliated with Electronic Arts or Meta. The Sims belongs to Electronic Arts and Muse belongs to Meta.
