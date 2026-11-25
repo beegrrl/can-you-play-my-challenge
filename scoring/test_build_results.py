@@ -53,13 +53,13 @@ def write(path, header, rows):
 def make_dir(rules=None, runs=None, check_rules=None, check_runs=None,
              cards=None):
     folder = Path(tempfile.mkdtemp())
-    write(folder / "rules-melissa.csv", RULES_HEADER,
+    write(folder / "rules-pass-1.csv", RULES_HEADER,
           full_rules() if rules is None else rules)
-    write(folder / "runs-melissa.csv", RUNS_HEADER,
+    write(folder / "runs-pass-1.csv", RUNS_HEADER,
           full_runs() if runs is None else runs)
-    write(folder / "rules-check.csv", RULES_HEADER,
+    write(folder / "rules-pass-2.csv", RULES_HEADER,
           full_rules() if check_rules is None else check_rules)
-    write(folder / "runs-check.csv", RUNS_HEADER,
+    write(folder / "runs-pass-2.csv", RUNS_HEADER,
           full_runs() if check_runs is None else check_runs)
     write(folder / "card-check.csv", CARD_HEADER,
           full_cards() if cards is None else cards)
@@ -82,12 +82,12 @@ def run_cli(folder, *flags):
 
 
 class ExpectedRuns(unittest.TestCase):
-    def test_nine_second_account_runs_and_three_same_account_runs(self):
+    def test_nine_runs_all_in_the_second_account(self):
         runs = br.expected_runs()
-        self.assertEqual(len(runs), 12)
-        self.assertEqual(len([r for r in runs if r.endswith("-second")]), 9)
-        same = [r for r in runs if r.endswith("-same")]
-        self.assertEqual(same, ["c1-C-same", "c2-C-same", "c3-C-same"])
+        self.assertEqual(len(runs), 9)
+        self.assertTrue(all(run.endswith("-second") for run in runs))
+        self.assertEqual(runs[0], "c1-A-second")
+        self.assertEqual(runs[-1], "c3-C-second")
 
     def test_case_3_has_four_fixed_rules_because_packs_are_the_hosts_choice(self):
         self.assertEqual(br.CASES["c3"], ["1", "3", "4", "5"])
@@ -113,10 +113,9 @@ class Counting(unittest.TestCase):
         self.assertEqual((run["kept_visible"], run["visible_total"]), (4, 4))
         self.assertEqual((run["kept_final"], run["final_total"]), (5, 5))
 
-    def test_totals_by_handoff_cover_only_the_second_account_runs(self):
+    def test_totals_are_given_by_handoff_and_for_all_9_runs(self):
         rules = full_rules()
         change(rules, "c1-A-second", "5", result="missing")
-        change(rules, "c1-C-same", "5", result="missing")
         runs = full_runs()
         change(runs, "c3-A-second", invented_restrictions="2",
                closed_a_choice="1", questions_asked="1")
@@ -129,9 +128,11 @@ class Counting(unittest.TestCase):
         self.assertEqual(a["questions_asked"], 1)
         c = results["by_handoff"]["C"]
         self.assertEqual((c["kept_final"], c["final_total"]), (14, 14))
-        same = results["same_account"]
-        self.assertEqual(same["runs"], 3)
-        self.assertEqual((same["kept_final"], same["final_total"]), (13, 14))
+        everything = results["all"]
+        self.assertEqual(everything["runs"], 9)
+        self.assertEqual(
+            (everything["kept_final"], everything["final_total"]), (41, 42))
+        self.assertEqual(everything["invented_restrictions"], 2)
 
     def test_budget_stated_is_reported_for_case_2(self):
         runs = full_runs()
@@ -164,9 +165,9 @@ class Missing(unittest.TestCase):
             row.update(invented_restrictions="", closed_a_choice="",
                        questions_asked="", budget_stated="")
         folder = make_dir(rules=rules, runs=runs)
-        self.assertEqual(len(br.build(folder)["missing"]), 12)
+        self.assertEqual(len(br.build(folder)["missing"]), 9)
         done = run_cli(folder, "--check")
-        self.assertEqual(done.stdout.splitlines()[0], "0 runs, 12 missing")
+        self.assertEqual(done.stdout.splitlines()[0], "0 runs, 9 missing")
         self.assertEqual(done.returncode, 1)
 
 
@@ -176,7 +177,7 @@ class Validation(unittest.TestCase):
         change(rules, "c1-B-second", "2", result="lost")
         done = run_cli(make_dir(rules=rules), "--check")
         self.assertEqual(done.returncode, 2)
-        self.assertIn("rules-melissa.csv", done.stderr)
+        self.assertIn("rules-pass-1.csv", done.stderr)
         self.assertIn("c1-B-second", done.stderr)
         self.assertIn("lost", done.stderr)
 
@@ -204,9 +205,11 @@ class Validation(unittest.TestCase):
 
 
 class Check(unittest.TestCase):
-    def test_complete_sheets_print_12_runs_0_missing(self):
+    def test_complete_sheets_print_9_runs_0_missing(self):
         done = run_cli(make_dir(), "--check")
-        self.assertEqual(done.stdout.splitlines()[0], "12 runs, 0 missing")
+        self.assertEqual(done.stdout.splitlines()[0], "9 runs, 0 missing")
+        self.assertEqual(done.stdout.splitlines()[1],
+                         "second pass: 9 runs, 0 missing")
         self.assertEqual(done.returncode, 0)
 
     def test_every_score_where_the_two_passes_differ_is_listed(self):
@@ -217,11 +220,19 @@ class Check(unittest.TestCase):
         done = run_cli(make_dir(check_rules=check_rules,
                                 check_runs=check_runs), "--check")
         self.assertIn("2 scores differ", done.stdout)
-        self.assertIn("c2-B-second rule 1 result: melissa=kept check=changed",
+        self.assertIn("c2-B-second rule 1 result: pass 1=kept, pass 2=changed",
                       done.stdout)
         self.assertIn(
-            "c3-A-second invented_restrictions: melissa=0 check=1",
+            "c3-A-second invented_restrictions: pass 1=0, pass 2=1",
             done.stdout)
+
+    def test_a_difference_is_saved_with_both_passes_named(self):
+        check_rules = full_rules()
+        change(check_rules, "c2-B-second", "1", result="changed")
+        results = br.build(make_dir(check_rules=check_rules))
+        self.assertEqual(results["differences"],
+                         [{"run_id": "c2-B-second", "field": "rule 1 result",
+                           "pass_1": "kept", "pass_2": "changed"}])
 
     def test_notes_are_never_compared(self):
         check_runs = full_runs()
@@ -239,7 +250,7 @@ class Check(unittest.TestCase):
         done = run_cli(folder)
         self.assertEqual(done.returncode, 0)
         saved = json.loads((folder / "results.json").read_text("utf-8"))
-        self.assertEqual(len(saved["runs"]), 12)
+        self.assertEqual(len(saved["runs"]), 9)
         self.assertEqual(saved["missing"], [])
 
 
@@ -250,8 +261,7 @@ class CardLosses(unittest.TestCase):
             if row["case"] == "c2" and row["rule_id"] == "1":
                 row["result"] = "changed"
         rules = full_rules()
-        for run_id in ("c2-C-second", "c2-C-same"):
-            change(rules, run_id, "1", visible="no")
+        change(rules, "c2-C-second", "1", visible="no")
         change(rules, "c2-C-second", "1", result="changed")
         check_rules = [dict(row) for row in rules]
         run = br.build(make_dir(rules=rules, check_rules=check_rules,
@@ -294,7 +304,7 @@ class CardLosses(unittest.TestCase):
 class HandEditedSheets(unittest.TestCase):
     def test_a_note_with_an_unquoted_comma_does_not_break_the_sheet(self):
         folder = make_dir()
-        path = folder / "runs-melissa.csv"
+        path = folder / "runs-pass-1.csv"
         text = path.read_text("utf-8").replace(
             "c1-A-second,0,0,0,,",
             "c1-A-second,0,0,0,,banned mods, banned custom content")
@@ -303,7 +313,7 @@ class HandEditedSheets(unittest.TestCase):
 
     def test_a_sheet_saved_with_a_byte_order_mark_is_read(self):
         folder = make_dir()
-        for name in ["rules-melissa.csv", "runs-melissa.csv"]:
+        for name in ["rules-pass-1.csv", "runs-pass-1.csv"]:
             path = folder / name
             path.write_text("\ufeff" + path.read_text("utf-8"), "utf-8")
         self.assertEqual(br.build(folder)["missing"], [])
@@ -313,10 +323,6 @@ class HandEditedSheets(unittest.TestCase):
         change(rules, "c1-B-second", "2", visible="Yes", result="Kept")
         run = br.build(make_dir(rules=rules))["runs"]["c1-B-second"]
         self.assertEqual(run["kept_final"], 5)
-
-
-if __name__ == "__main__":
-    unittest.main()
 
 
 def blank_first_pass():
@@ -342,15 +348,15 @@ class SecondPass(unittest.TestCase):
                                     check_runs=check_runs))
         self.assertEqual(results["runs"], {})
         second = results["second_pass"]
-        self.assertEqual(len(second["runs"]), 12)
+        self.assertEqual(len(second["runs"]), 9)
         self.assertEqual(second["runs"]["c2-B-second"]["kept_final"], 4)
         self.assertEqual(second["by_handoff"]["B"]["kept_final"], 13)
         self.assertEqual(second["by_handoff"]["B"]["invented_restrictions"], 2)
 
-    def test_second_pass_totals_by_handoff_leave_out_the_same_account_runs(self):
+    def test_the_second_pass_has_totals_by_handoff_and_for_all_9_runs(self):
         second = br.build(make_dir())["second_pass"]
         self.assertEqual(second["by_handoff"]["C"]["runs"], 3)
-        self.assertEqual(second["same_account"]["runs"], 3)
+        self.assertEqual(second["all"]["runs"], 9)
 
     def test_an_unfinished_second_pass_run_stays_out_of_its_totals(self):
         check_rules = full_rules()
@@ -359,3 +365,7 @@ class SecondPass(unittest.TestCase):
         self.assertNotIn("c1-A-second", results["second_pass"]["runs"])
         self.assertEqual(results["second_pass"]["by_handoff"]["A"]["runs"], 2)
         self.assertEqual(results["second_pass_missing"], ["c1-A-second"])
+
+
+if __name__ == "__main__":
+    unittest.main()

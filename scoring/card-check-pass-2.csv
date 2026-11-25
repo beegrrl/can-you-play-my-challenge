@@ -1,0 +1,15 @@
+case,rule_id,result
+c1,1,kept
+c1,2,kept
+c1,3,kept
+c1,4,kept
+c1,5,kept
+c2,1,kept
+c2,2,kept
+c2,3,kept
+c2,4,kept
+c2,5,kept
+c3,1,kept
+c3,3,kept
+c3,4,kept
+c3,5,kept

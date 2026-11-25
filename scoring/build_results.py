@@ -1,9 +1,8 @@
 """Turn the scoring sheets into results.json.
 
-Every run is scored twice from the saved text. Melissa's sheets are the
-ones the page reports. The check sheets are an automated second pass, and
-this script lists every score where the 2 differ. Until Melissa's sheets are
-filled in, results.json carries the second pass on its own.
+Every run is scored twice from the saved text, by 2 automated passes that
+never see each other's sheets. The page reports pass 1. This script lists
+every score where pass 2 differs.
 
     python3 scoring/build_results.py --check   # count runs, list differences
     python3 scoring/build_results.py           # same, and write results.json
@@ -35,14 +34,12 @@ class SheetError(Exception):
 
 
 def expected_runs():
-    """9 runs in the second account, then 3 card runs in the creator's."""
-    second = [f"{case}-{handoff}-second" for case in CASES for handoff in HANDOFFS]
-    same = [f"{case}-C-same" for case in CASES]
-    return second + same
+    """The 9 runs in the second account: 3 cases, each handed over 3 ways."""
+    return [f"{case}-{handoff}-second" for case in CASES for handoff in HANDOFFS]
 
 
 def read_rows(path):
-    """Rows as plain text cells. Sheets get filled in by hand, so a byte order
+    """Rows as plain text cells. A sheet may be edited by hand, so a byte order
     mark is skipped and a note with an unquoted comma is put back together."""
     with open(path, newline="", encoding="utf-8-sig") as handle:
         reader = csv.DictReader(handle)
@@ -147,7 +144,7 @@ def is_complete(run_id, rules, runs):
 
 
 def score_run(run_id, rules, runs, cards):
-    case, handoff, account = run_id.split("-")
+    case, handoff, _ = run_id.split("-")
     rule_rows = rules[run_id]
     run_row = runs[run_id]
     visible = [r for r in CASES[case] if rule_rows[r]["visible"] == "yes"]
@@ -163,7 +160,6 @@ def score_run(run_id, rules, runs, cards):
     return {
         "case": case,
         "handoff": handoff,
-        "account": account,
         "kept_visible": len([r for r in kept if r in visible]),
         "visible_total": len(visible),
         "kept_final": len(kept),
@@ -199,12 +195,12 @@ def differences(rules, runs, check_rules, check_runs):
                 if mine != theirs:
                     found.append({"run_id": run_id,
                                   "field": f"rule {rule_id} {field}",
-                                  "melissa": mine, "check": theirs})
+                                  "pass_1": mine, "pass_2": theirs})
         for field in [*COUNT_FIELDS, "budget_stated"]:
             mine, theirs = runs[run_id][field], check_runs[run_id][field]
             if mine != theirs:
                 found.append({"run_id": run_id, "field": field,
-                              "melissa": mine, "check": theirs})
+                              "pass_1": mine, "pass_2": theirs})
     return found
 
 
@@ -238,26 +234,25 @@ def score_sheets(rules, runs, cards):
 
 
 def totals(scored):
-    """Sums by handoff for the second account, and for the same-account runs."""
-    second = [run for run in scored.values() if run["account"] == "second"]
+    """Sums by handoff, and for every finished run together."""
+    runs = list(scored.values())
     return {
-        "by_handoff": {handoff: total([run for run in second
+        "by_handoff": {handoff: total([run for run in runs
                                        if run["handoff"] == handoff])
                        for handoff in HANDOFFS},
-        "same_account": total([run for run in scored.values()
-                               if run["account"] == "same"]),
+        "all": total(runs),
     }
 
 
 def build(folder):
     folder = Path(folder)
-    rules = load_rules(folder / "rules-melissa.csv")
-    runs = load_runs(folder / "runs-melissa.csv")
-    check_rules = load_rules(folder / "rules-check.csv")
-    check_runs = load_runs(folder / "runs-check.csv")
+    rules = load_rules(folder / "rules-pass-1.csv")
+    runs = load_runs(folder / "runs-pass-1.csv")
+    check_rules = load_rules(folder / "rules-pass-2.csv")
+    check_runs = load_runs(folder / "runs-pass-2.csv")
     cards = load_cards(folder / "card-check.csv")
-    check_card_runs("rules-melissa.csv", rules, cards)
-    check_card_runs("rules-check.csv", check_rules, cards)
+    check_card_runs("rules-pass-1.csv", rules, cards)
+    check_card_runs("rules-pass-2.csv", check_rules, cards)
 
     scored, missing = score_sheets(rules, runs, cards)
     check_scored, check_missing = score_sheets(check_rules, check_runs, cards)
@@ -282,7 +277,7 @@ def report(results):
     ]
     for item in results["differences"]:
         lines.append(f"{item['run_id']} {item['field']}: "
-                     f"melissa={item['melissa']} check={item['check']}")
+                     f"pass 1={item['pass_1']}, pass 2={item['pass_2']}")
     return "\n".join(lines)
 
 
