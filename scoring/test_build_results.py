@@ -317,3 +317,45 @@ class HandEditedSheets(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+def blank_first_pass():
+    rules = full_rules()
+    for row in rules:
+        row.update(result="")
+    runs = full_runs()
+    for row in runs:
+        row.update(invented_restrictions="", closed_a_choice="",
+                   questions_asked="", budget_stated="")
+    return rules, runs
+
+
+class SecondPass(unittest.TestCase):
+    def test_the_second_pass_is_scored_on_its_own_while_the_first_is_blank(self):
+        rules, runs = blank_first_pass()
+        check_rules = full_rules()
+        change(check_rules, "c2-B-second", "1", result="changed")
+        check_runs = full_runs()
+        change(check_runs, "c2-B-second", invented_restrictions="2")
+        results = br.build(make_dir(rules=rules, runs=runs,
+                                    check_rules=check_rules,
+                                    check_runs=check_runs))
+        self.assertEqual(results["runs"], {})
+        second = results["second_pass"]
+        self.assertEqual(len(second["runs"]), 12)
+        self.assertEqual(second["runs"]["c2-B-second"]["kept_final"], 4)
+        self.assertEqual(second["by_handoff"]["B"]["kept_final"], 13)
+        self.assertEqual(second["by_handoff"]["B"]["invented_restrictions"], 2)
+
+    def test_second_pass_totals_by_handoff_leave_out_the_same_account_runs(self):
+        second = br.build(make_dir())["second_pass"]
+        self.assertEqual(second["by_handoff"]["C"]["runs"], 3)
+        self.assertEqual(second["same_account"]["runs"], 3)
+
+    def test_an_unfinished_second_pass_run_stays_out_of_its_totals(self):
+        check_rules = full_rules()
+        change(check_rules, "c1-A-second", "2", result="")
+        results = br.build(make_dir(check_rules=check_rules))
+        self.assertNotIn("c1-A-second", results["second_pass"]["runs"])
+        self.assertEqual(results["second_pass"]["by_handoff"]["A"]["runs"], 2)
+        self.assertEqual(results["second_pass_missing"], ["c1-A-second"])

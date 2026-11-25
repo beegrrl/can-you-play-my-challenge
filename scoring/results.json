@@ -1,0 +1,445 @@
+{
+  "runs": {},
+  "missing": [
+    "c1-A-second",
+    "c1-B-second",
+    "c1-C-second",
+    "c2-A-second",
+    "c2-B-second",
+    "c2-C-second",
+    "c3-A-second",
+    "c3-B-second",
+    "c3-C-second",
+    "c1-C-same",
+    "c2-C-same",
+    "c3-C-same"
+  ],
+  "by_handoff": {
+    "A": {
+      "runs": 0,
+      "kept_visible": 0,
+      "visible_total": 0,
+      "kept_final": 0,
+      "final_total": 0,
+      "invented_restrictions": 0,
+      "closed_a_choice": 0,
+      "questions_asked": 0
+    },
+    "B": {
+      "runs": 0,
+      "kept_visible": 0,
+      "visible_total": 0,
+      "kept_final": 0,
+      "final_total": 0,
+      "invented_restrictions": 0,
+      "closed_a_choice": 0,
+      "questions_asked": 0
+    },
+    "C": {
+      "runs": 0,
+      "kept_visible": 0,
+      "visible_total": 0,
+      "kept_final": 0,
+      "final_total": 0,
+      "invented_restrictions": 0,
+      "closed_a_choice": 0,
+      "questions_asked": 0
+    }
+  },
+  "same_account": {
+    "runs": 0,
+    "kept_visible": 0,
+    "visible_total": 0,
+    "kept_final": 0,
+    "final_total": 0,
+    "invented_restrictions": 0,
+    "closed_a_choice": 0,
+    "questions_asked": 0
+  },
+  "second_pass": {
+    "runs": {
+      "c1-A-second": {
+        "case": "c1",
+        "handoff": "A",
+        "account": "second",
+        "kept_visible": 3,
+        "visible_total": 3,
+        "kept_final": 4,
+        "final_total": 5,
+        "invented_restrictions": 8,
+        "closed_a_choice": 0,
+        "questions_asked": 0,
+        "budget_stated": "",
+        "rules": {
+          "1": {
+            "visible": "yes",
+            "result": "kept"
+          },
+          "2": {
+            "visible": "yes",
+            "result": "kept"
+          },
+          "3": {
+            "visible": "yes",
+            "result": "kept"
+          },
+          "4": {
+            "visible": "no",
+            "result": "kept"
+          },
+          "5": {
+            "visible": "no",
+            "result": "missing"
+          }
+        },
+        "losses": []
+      },
+      "c1-B-second": {
+        "case": "c1",
+        "handoff": "B",
+        "account": "second",
+        "kept_visible": 5,
+        "visible_total": 5,
+        "kept_final": 5,
+        "final_total": 5,
+        "invented_restrictions": 8,
+        "closed_a_choice": 0,
+        "questions_asked": 0,
+        "budget_stated": "",
+        "rules": {
+          "1": {
+            "visible": "yes",
+            "result": "kept"
+          },
+          "2": {
+            "visible": "yes",
+            "result": "kept"
+          },
+          "3": {
+            "visible": "yes",
+            "result": "kept"
+          },
+          "4": {
+            "visible": "yes",
+            "result": "kept"
+          },
+          "5": {
+            "visible": "yes",
+            "result": "kept"
+          }
+        },
+        "losses": []
+      },
+      "c1-C-second": {
+        "case": "c1",
+        "handoff": "C",
+        "account": "second",
+        "kept_visible": 5,
+        "visible_total": 5,
+        "kept_final": 5,
+        "final_total": 5,
+        "invented_restrictions": 8,
+        "closed_a_choice": 0,
+        "questions_asked": 0,
+        "budget_stated": "",
+        "rules": {
+          "1": {
+            "visible": "yes",
+            "result": "kept"
+          },
+          "2": {
+            "visible": "yes",
+            "result": "kept"
+          },
+          "3": {
+            "visible": "yes",
+            "result": "kept"
+          },
+          "4": {
+            "visible": "yes",
+            "result": "kept"
+          },
+          "5": {
+            "visible": "yes",
+            "result": "kept"
+          }
+        },
+        "losses": []
+      },
+      "c2-A-second": {
+        "case": "c2",
+        "handoff": "A",
+        "account": "second",
+        "kept_visible": 2,
+        "visible_total": 2,
+        "kept_final": 4,
+        "final_total": 5,
+        "invented_restrictions": 8,
+        "closed_a_choice": 0,
+        "questions_asked": 0,
+        "budget_stated": "20000",
+        "rules": {
+          "1": {
+            "visible": "no",
+            "result": "changed"
+          },
+          "2": {
+            "visible": "yes",
+            "result": "kept"
+          },
+          "3": {
+            "visible": "yes",
+            "result": "kept"
+          },
+          "4": {
+            "visible": "no",
+            "result": "kept"
+          },
+          "5": {
+            "visible": "no",
+            "result": "kept"
+          }
+        },
+        "losses": []
+      },
+      "c2-B-second": {
+        "case": "c2",
+        "handoff": "B",
+        "account": "second",
+        "kept_visible": 5,
+        "visible_total": 5,
+        "kept_final": 5,
+        "final_total": 5,
+        "invented_restrictions": 8,
+        "closed_a_choice": 0,
+        "questions_asked": 0,
+        "budget_stated": "both",
+        "rules": {
+          "1": {
+            "visible": "yes",
+            "result": "kept"
+          },
+          "2": {
+            "visible": "yes",
+            "result": "kept"
+          },
+          "3": {
+            "visible": "yes",
+            "result": "kept"
+          },
+          "4": {
+            "visible": "yes",
+            "result": "kept"
+          },
+          "5": {
+            "visible": "yes",
+            "result": "kept"
+          }
+        },
+        "losses": []
+      },
+      "c2-C-second": {
+        "case": "c2",
+        "handoff": "C",
+        "account": "second",
+        "kept_visible": 5,
+        "visible_total": 5,
+        "kept_final": 5,
+        "final_total": 5,
+        "invented_restrictions": 6,
+        "closed_a_choice": 0,
+        "questions_asked": 0,
+        "budget_stated": "both",
+        "rules": {
+          "1": {
+            "visible": "yes",
+            "result": "kept"
+          },
+          "2": {
+            "visible": "yes",
+            "result": "kept"
+          },
+          "3": {
+            "visible": "yes",
+            "result": "kept"
+          },
+          "4": {
+            "visible": "yes",
+            "result": "kept"
+          },
+          "5": {
+            "visible": "yes",
+            "result": "kept"
+          }
+        },
+        "losses": []
+      },
+      "c3-A-second": {
+        "case": "c3",
+        "handoff": "A",
+        "account": "second",
+        "kept_visible": 2,
+        "visible_total": 2,
+        "kept_final": 2,
+        "final_total": 4,
+        "invented_restrictions": 1,
+        "closed_a_choice": 0,
+        "questions_asked": 0,
+        "budget_stated": "",
+        "rules": {
+          "1": {
+            "visible": "yes",
+            "result": "kept"
+          },
+          "3": {
+            "visible": "yes",
+            "result": "kept"
+          },
+          "4": {
+            "visible": "no",
+            "result": "changed"
+          },
+          "5": {
+            "visible": "no",
+            "result": "missing"
+          }
+        },
+        "losses": []
+      },
+      "c3-B-second": {
+        "case": "c3",
+        "handoff": "B",
+        "account": "second",
+        "kept_visible": 4,
+        "visible_total": 4,
+        "kept_final": 4,
+        "final_total": 4,
+        "invented_restrictions": 3,
+        "closed_a_choice": 0,
+        "questions_asked": 0,
+        "budget_stated": "",
+        "rules": {
+          "1": {
+            "visible": "yes",
+            "result": "kept"
+          },
+          "3": {
+            "visible": "yes",
+            "result": "kept"
+          },
+          "4": {
+            "visible": "yes",
+            "result": "kept"
+          },
+          "5": {
+            "visible": "yes",
+            "result": "kept"
+          }
+        },
+        "losses": []
+      },
+      "c3-C-second": {
+        "case": "c3",
+        "handoff": "C",
+        "account": "second",
+        "kept_visible": 4,
+        "visible_total": 4,
+        "kept_final": 4,
+        "final_total": 4,
+        "invented_restrictions": 5,
+        "closed_a_choice": 0,
+        "questions_asked": 0,
+        "budget_stated": "",
+        "rules": {
+          "1": {
+            "visible": "yes",
+            "result": "kept"
+          },
+          "3": {
+            "visible": "yes",
+            "result": "kept"
+          },
+          "4": {
+            "visible": "yes",
+            "result": "kept"
+          },
+          "5": {
+            "visible": "yes",
+            "result": "kept"
+          }
+        },
+        "losses": []
+      }
+    },
+    "by_handoff": {
+      "A": {
+        "runs": 3,
+        "kept_visible": 7,
+        "visible_total": 7,
+        "kept_final": 10,
+        "final_total": 14,
+        "invented_restrictions": 17,
+        "closed_a_choice": 0,
+        "questions_asked": 0
+      },
+      "B": {
+        "runs": 3,
+        "kept_visible": 14,
+        "visible_total": 14,
+        "kept_final": 14,
+        "final_total": 14,
+        "invented_restrictions": 19,
+        "closed_a_choice": 0,
+        "questions_asked": 0
+      },
+      "C": {
+        "runs": 3,
+        "kept_visible": 14,
+        "visible_total": 14,
+        "kept_final": 14,
+        "final_total": 14,
+        "invented_restrictions": 19,
+        "closed_a_choice": 0,
+        "questions_asked": 0
+      }
+    },
+    "same_account": {
+      "runs": 0,
+      "kept_visible": 0,
+      "visible_total": 0,
+      "kept_final": 0,
+      "final_total": 0,
+      "invented_restrictions": 0,
+      "closed_a_choice": 0,
+      "questions_asked": 0
+    }
+  },
+  "second_pass_missing": [
+    "c1-C-same",
+    "c2-C-same",
+    "c3-C-same"
+  ],
+  "differences": [],
+  "cards": {
+    "c1": {
+      "1": "kept",
+      "2": "kept",
+      "3": "kept",
+      "4": "kept",
+      "5": "kept"
+    },
+    "c2": {
+      "1": "kept",
+      "2": "kept",
+      "3": "kept",
+      "4": "kept",
+      "5": "kept"
+    },
+    "c3": {
+      "1": "kept",
+      "3": "kept",
+      "4": "kept",
+      "5": "kept"
+    }
+  }
+}

@@ -1,13 +1,13 @@
 run_id,invented_restrictions,closed_a_choice,questions_asked,budget_stated,notes
-c1-A-second,,,,,
-c1-B-second,,,,,
-c1-C-second,,,,,
-c2-A-second,,,,,
-c2-B-second,,,,,
-c2-C-second,,,,,
-c3-A-second,,,,,
-c3-B-second,,,,,
-c3-C-second,,,,,
+c1-A-second,8,0,0,,Run 1 and the only one with no earlier run to remember. Counted: same lot for everyone; empty lot only; no CC or mods; no Gallery; move-objects limit; 1 Sim and required rooms; orange defined; no orange elsewhere. Rule 4 is in the list though this handoff never carried it. Ends with a question about the lot.
+c1-B-second,8,0,0,,Counted: same lot for everyone; empty lot only; no CC or mods; no Gallery; move-objects limit; 1 Sim and required rooms; orange defined; no orange elsewhere. Same wording as run 1 plus the 60-minute rule. Ends with a question about the deadline.
+c1-C-second,8,0,0,,Counted: same lot for everyone; empty lot only; no CC or mods (on the card); no Gallery; move-objects limit; 1 Sim and required rooms; orange defined; no orange elsewhere. The card left the lot; voting and next host to the host and the list settles all 3.
+c2-A-second,8,0,0,20000,Counted: same lot for everyone; empty lot only; no CC or mods; no Gallery; move-objects limit; 1 Sim and required rooms; orange defined; no orange elsewhere. Rules 4 and 5 are in the list though this handoff never carried them. Rule 5 can only come from the account's earlier runs.
+c2-B-second,8,0,0,both,The budget is 16000 as a spending limit and 20000 is named as the starting funds. Counted: same lot for everyone; empty lot only; no CC or mods; no Gallery; move-objects limit; 1 Sim and required rooms; orange defined; no orange elsewhere.
+c2-C-second,6,0,0,both,The budget is 16000 as a spending limit and 20000 is named as the starting funds; as on the card. Counted: same lot for everyone; empty lot only; no CC or mods (on the card); orange defined (on the card); no orange elsewhere; required rooms. The card left the lot; voting and next host to the host and the list settles all 3.
+c3-A-second,1,0,0,,Counted: no orange in any other room. Rule 4 arrives as no extra funds. Packs are left as a blank for the host. After the list it asks which packs to allow; and whether to lock in a lot and time limit like in your earlier draft.
+c3-B-second,3,0,0,,Counted: same lot for everyone; empty lot only; no orange in any other room. Packs are left as a blank for the host. Ends with a question about the pack pick.
+c3-C-second,5,0,0,,Counted: same lot for everyone; empty lot only; orange defined; no orange in any other room; required rooms. Packs are left as a blank for the host. The card left the lot and voting to the host and the list settles both.
 c1-C-same,,,,,
 c2-C-same,,,,,
 c3-C-same,,,,,

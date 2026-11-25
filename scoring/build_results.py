@@ -2,7 +2,8 @@
 
 Every run is scored twice from the saved text. Melissa's sheets are the
 ones the page reports. The check sheets are an automated second pass, and
-this script lists every score where the 2 differ.
+this script lists every score where the 2 differ. Until Melissa's sheets are
+filled in, results.json carries the second pass on its own.
 
     python3 scoring/build_results.py --check   # count runs, list differences
     python3 scoring/build_results.py           # same, and write results.json
@@ -225,6 +226,29 @@ def check_card_runs(name, rules, cards):
                     f"as {on_card} on the card")
 
 
+def score_sheets(rules, runs, cards):
+    """The finished runs on one pair of sheets, and the ids of the rest."""
+    scored, missing = {}, []
+    for run_id in expected_runs():
+        if is_complete(run_id, rules, runs):
+            scored[run_id] = score_run(run_id, rules, runs, cards)
+        else:
+            missing.append(run_id)
+    return scored, missing
+
+
+def totals(scored):
+    """Sums by handoff for the second account, and for the same-account runs."""
+    second = [run for run in scored.values() if run["account"] == "second"]
+    return {
+        "by_handoff": {handoff: total([run for run in second
+                                       if run["handoff"] == handoff])
+                       for handoff in HANDOFFS},
+        "same_account": total([run for run in scored.values()
+                               if run["account"] == "same"]),
+    }
+
+
 def build(folder):
     folder = Path(folder)
     rules = load_rules(folder / "rules-melissa.csv")
@@ -235,25 +259,14 @@ def build(folder):
     check_card_runs("rules-melissa.csv", rules, cards)
     check_card_runs("rules-check.csv", check_rules, cards)
 
-    scored, missing = {}, []
-    for run_id in expected_runs():
-        if is_complete(run_id, rules, runs):
-            scored[run_id] = score_run(run_id, rules, runs, cards)
-        else:
-            missing.append(run_id)
-
-    second = [run for run in scored.values() if run["account"] == "second"]
+    scored, missing = score_sheets(rules, runs, cards)
+    check_scored, check_missing = score_sheets(check_rules, check_runs, cards)
     return {
         "runs": scored,
         "missing": missing,
-        "by_handoff": {handoff: total([run for run in second
-                                       if run["handoff"] == handoff])
-                       for handoff in HANDOFFS},
-        "same_account": total([run for run in scored.values()
-                               if run["account"] == "same"]),
-        "second_pass_missing": [
-            run_id for run_id in expected_runs()
-            if not is_complete(run_id, check_rules, check_runs)],
+        **totals(scored),
+        "second_pass": {"runs": check_scored, **totals(check_scored)},
+        "second_pass_missing": check_missing,
         "differences": differences(rules, runs, check_rules, check_runs),
         "cards": cards,
     }
