@@ -1,0 +1,451 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Can you play my challenge? | A handoff test</title>
+<meta name="description" content="I handed 1 build challenge from one AI agent account to another, 9 ways, and counted which of my rules arrived.">
+<meta name="author" content="Melissa Thorne">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://beegrrl.github.io/can-you-play-my-challenge/">
+<meta property="og:title" content="Can you play my challenge? | A handoff test">
+<meta property="og:description" content="I handed 1 build challenge from one AI agent account to another, 9 ways, and counted which of my rules arrived.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://beegrrl.github.io/can-you-play-my-challenge/">
+<link rel="icon" type="image/svg+xml" href="https://beegrrl.github.io/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:light;--paper:#fbf9f3;--ink:#1c2723;--muted:#515a56;--line:#cdd0c8;--card:#ffffff;--band:#f0ede4;--orange:#ff6a00}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;color:var(--ink);background:var(--paper);font:1.0625rem/1.6 Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+::selection{background:var(--ink);color:var(--paper)}
+h1,h2,h3,.wordmark{font-family:"Bricolage Grotesque",Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+main,.top,footer{max-width:900px;margin:0 auto;padding:0 28px}
+.skip{position:absolute;left:16px;top:12px;transform:translateY(-200%);background:var(--ink);color:var(--paper);padding:8px 13px;border-radius:4px;font-weight:600;z-index:2}
+.skip:focus{transform:none}
+.top{display:flex;justify-content:space-between;align-items:center;gap:18px;padding-top:24px;padding-bottom:18px;border-bottom:1px solid var(--line)}
+.wordmark{font-size:1.125rem;font-weight:700;letter-spacing:-.025em}
+.mark{display:inline-block;height:.8em;width:.8em;margin-right:.45em;background:var(--ink);border-radius:2px}
+a{color:var(--ink);text-decoration-thickness:1.5px;text-underline-offset:3px}
+a:hover{text-decoration-thickness:3px}
+a:focus-visible,button:focus-visible,.table-wrap:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+h1{font-weight:650;font-size:clamp(2.05rem,5vw,2.95rem);letter-spacing:-.04em;line-height:1.06;margin:44px 0 18px;text-wrap:balance}
+h1 span{display:block}
+h2{font-weight:650;font-size:clamp(1.55rem,3.2vw,2.15rem);letter-spacing:-.03em;line-height:1.12;margin:0 0 12px;text-wrap:balance}
+h3{font-weight:650;font-size:1.2rem;letter-spacing:-.02em;line-height:1.25;margin:30px 0 8px}
+p{margin:0 0 14px;max-width:68ch}
+.intro{font-size:1.14rem;color:var(--ink);max-width:62ch}
+.status{font-size:.95rem;color:var(--muted);max-width:62ch;margin-bottom:30px}
+section{padding:42px 0;border-top:1px solid var(--line)}
+.fine{font-size:.93rem;color:var(--muted)}
+
+.case{border-top:0;padding:0;margin:0 0 14px}
+.case-card{background:var(--card);border:1px solid var(--ink);border-radius:4px;padding:24px 26px 20px;max-width:680px}
+.case-card h2{font-size:clamp(1.6rem,3.4vw,2.2rem);margin-bottom:10px}
+.case-card p:last-child{margin-bottom:0}
+.size{color:var(--muted);margin:16px 0 44px}
+
+.compare{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,9fr);gap:30px 36px;margin-top:22px;align-items:start}
+.mine{background:var(--card);border:1px solid var(--line);border-radius:4px;padding:18px 20px;position:sticky;top:18px}
+.mine h3,.came h3{margin-top:0}
+.mine ol{margin:0;padding-left:1.3rem}
+.mine li{margin:0 0 9px;padding-left:2px}
+.mine li:last-child{margin-bottom:0}
+.budget{display:inline-block;background:var(--orange);color:var(--ink);outline:2px solid var(--ink);border-radius:2px;padding:1px 7px;font-weight:700}
+.budget-note{display:block;font-size:.88rem;color:var(--muted);margin-top:5px}
+.switch{border:0;margin:0 0 16px;padding:0;min-width:0}
+.switch legend{padding:0;font-weight:600;margin-bottom:8px}
+.switch-row{display:flex;flex-wrap:wrap;gap:8px}
+.switch input{position:absolute;opacity:0;width:1px;height:1px}
+.switch label{display:inline-block;border:1.5px solid var(--ink);border-radius:4px;padding:6px 12px;font-size:.95rem;font-weight:600;cursor:pointer;background:var(--card)}
+.switch input:checked + label{background:var(--ink);color:var(--paper)}
+.switch input:focus-visible + label{outline:3px solid var(--ink);outline-offset:3px}
+.compare:has(#h-a:checked) .panel:not(#p-a),
+.compare:has(#h-b:checked) .panel:not(#p-b),
+.compare:has(#h-c:checked) .panel:not(#p-c){display:none}
+.panel + .panel{margin-top:34px}
+.compare:has(input:checked) .panel + .panel{margin-top:0}
+.takeaway{font-weight:500}
+.copied-as{font-size:.88rem;color:var(--muted);margin:14px 0 8px}
+.answer{list-style:none;margin:0;padding:10px;background:var(--card);border:1px solid var(--line);border-radius:4px;font-feature-settings:"calt" 0}
+.ln{display:grid;grid-template-columns:8.4rem minmax(0,1fr);gap:4px 14px;padding:6px 8px;border-radius:3px;font-size:.95rem;line-height:1.5}
+.ln .tag{font-size:.8rem;font-weight:600;color:var(--muted);padding-top:.16em}
+.ln.kept .txt,.ln.old .txt{font-weight:600}
+.ln.kept .tag,.ln.old .tag{color:var(--ink)}
+.ln.added{background:var(--band)}
+.ln.added .tag{color:var(--ink)}
+.ln.head{padding-top:12px}
+.ln.head .txt{font-family:"Bricolage Grotesque",Inter,sans-serif;font-weight:650;letter-spacing:-.01em}
+.ln.host .txt,.ln.note .txt{color:var(--muted)}
+.money{font-weight:700;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:3px;color:var(--ink)}
+.key{font-size:.9rem;color:var(--muted);margin-top:12px}
+
+.table-wrap{overflow-x:auto;margin:16px 0 12px}
+table{border-collapse:collapse;width:100%;font-size:.95rem;font-variant-numeric:tabular-nums}
+th,td{padding:9px 12px 9px 0;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+thead th{font-size:.84rem;line-height:1.35;color:var(--muted);font-weight:600;vertical-align:bottom}
+tbody th{font-weight:600}
+tfoot th,tfoot td{font-weight:700;border-bottom:0;border-top:2px solid var(--ink)}
+.counts table{min-width:640px}
+.order table{min-width:620px}
+
+.memory ul,.how ul,.issues ul{padding-left:1.25rem;margin:8px 0 16px;max-width:68ch}
+.memory li,.how li,.issues li{margin:0 0 10px}
+
+.bet{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px 34px;padding:20px 0;border-top:1px solid var(--line)}
+.bet:first-of-type{margin-top:18px}
+.bet p{margin:0}
+.bet .said{color:var(--muted)}
+.bet .verdict{font-family:"Bricolage Grotesque",Inter,sans-serif;font-weight:650;font-size:1.15rem;letter-spacing:-.02em;margin-bottom:4px}
+
+.handoff-card{background:var(--card);border:1px solid var(--ink);border-radius:4px;padding:22px 24px;margin:18px 0 14px;max-width:720px;font:inherit;font-size:.95rem;line-height:1.55;white-space:pre-wrap;overflow-wrap:anywhere;font-feature-settings:"calt" 0}
+.copy{font:inherit;font-weight:600;background:var(--ink);color:var(--paper);border:0;border-radius:4px;padding:9px 16px;cursor:pointer}
+.copy:active{transform:translateY(1px)}
+.copy[hidden]{display:none}
+.copy-row{display:flex;align-items:center;gap:14px;margin-bottom:16px}
+
+.rules ol{padding-left:1.3rem;margin:10px 0 16px;max-width:60ch}
+.rules li{margin-bottom:6px}
+
+footer{border-top:1px solid var(--line);padding-top:22px;padding-bottom:40px;font-size:.92rem;color:var(--muted)}
+footer p{max-width:none}
+.links{display:flex;flex-wrap:wrap;gap:6px 24px;margin:0 0 12px}
+
+@media (max-width:760px){
+  .compare{grid-template-columns:minmax(0,1fr)}
+  .mine{position:static}
+  .bet{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:560px){
+  main,.top,footer{padding-left:18px;padding-right:18px}
+  .top{font-size:.9rem;gap:12px}
+  .top a,.wordmark{white-space:nowrap}
+  .wordmark{font-size:1rem}
+  h1{margin-top:30px}
+  section{padding:34px 0}
+  .ln{grid-template-columns:minmax(0,1fr);gap:0}
+  .ln .tag{padding-top:0}
+  .ln.head .tag{display:none}
+  .case-card{padding:20px 18px 16px}
+  .handoff-card{padding:18px 16px}
+}
+@media print{.switch,.copy,.skip{display:none}.panel{display:block!important}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to the page</a>
+<header class="top"><span class="wordmark"><span class="mark" aria-hidden="true"></span>Can you play my challenge?</span><a href="https://beegrrl.github.io/">Melissa Thorne</a></header>
+<main id="main">
+<h1><span>Every rule I handed over came back.</span> <span>So did 55 I never wrote.</span></h1>
+<p class="intro">I made a build challenge for The Sims 4 with Muse, Meta's AI agent. Then a second Muse account, one that had never seen the challenge, got it handed over 9 ways and was asked for the rules to send to players. I wrote my predictions before any run. Most of them were wrong.</p>
+<p class="status">The counts on this page come from an automated pass over the saved answers. My own hand count is next, and this line changes when it lands.</p>
+
+<section class="case" aria-labelledby="case-title">
+  <div class="case-card">
+    <h2 id="case-title">One Offensively Orange Room</h2>
+    <p>Asked for the rules to send to players, the second account's Muse returned every rule it had been shown and left my 2 open choices to the host. Every list also came back with between 1 and 8 limits I never wrote. From the second run on, it was writing from its memory of the first.</p>
+    <p><a href="https://github.com/beegrrl/can-you-play-my-challenge/tree/main/runs/second-account">Read all 9 answers</a></p>
+  </div>
+  <p class="size">It is the size of challenge a Muse community could run in a week. 5 rules and a 60-minute build.</p>
+</section>
+
+<section aria-labelledby="budget-title">
+  <h2 id="budget-title">I dropped the budget mid-chat. Did §16,000 arrive?</h2>
+  <p>This is case 2. I set §20,000 in my opening prompt and changed it to §16,000 partway through the chat. § is the game's money sign. Pick a handoff to see what came back.</p>
+  <div class="compare">
+    <div class="mine">
+      <h3>My final rules</h3>
+      <ol>
+        <li><span class="budget">Each player gets §16,000.</span><span class="budget-note">The changed budget. My opening prompt said §20,000.</span></li>
+        <li>Base game only.</li>
+        <li>Exactly 1 room is offensively orange. The next host picks the color.</li>
+        <li>No money cheats.</li>
+        <li>It's a 60-minute speed build.</li>
+      </ol>
+    </div>
+    <div class="came">
+      <fieldset class="switch">
+        <legend>What the second account was given</legend>
+        <div class="switch-row">
+          <input type="radio" name="handoff" id="h-a"><label for="h-a">A. My opening prompt alone</label>
+          <input type="radio" name="handoff" id="h-b" checked><label for="h-b">B. The full conversation</label>
+          <input type="radio" name="handoff" id="h-c"><label for="h-c">C. A card Muse made</label>
+        </div>
+      </fieldset>
+
+      <article class="panel" id="p-a" aria-labelledby="pa-title">
+        <h3 id="pa-title">What came back from the opening prompt</h3>
+        <p class="takeaway">The old budget came back, as it had to. This handoff never carried the change. The list also has rules 4 and 5, which this handoff never carried either. Run 1 shows Muse adds a ban on money cheats by itself. The 60-minute line matches run 2 word for word, so it came from the account's memory. 8 limits here are ones I never wrote.</p>
+        <p class="copied-as">Copied as text on November 25, 2026. The second player's first name is replaced, and nothing else is changed.</p>
+        <ul class="answer">
+<li class="ln head"><span class="tag"></span><span class="txt">Budget</span></li>
+<li class="ln old"><span class="tag">Rule 1, old budget</span><span class="txt">Each player gets <b class="money">§20,000</b> total, lot included. Final lot value must be <b class="money">§20,000</b> or less.</span></li>
+<li class="ln added"><span class="tag">Added</span><span class="txt">Everyone builds on the same lot: Bargain Bend in Willow Creek, Foundry Cove. It's a 30x20 empty lot for §2,000, so you have §18,000 left to build with.</span></li>
+<li class="ln added"><span class="tag">Added</span><span class="txt">Start from the empty lot. No bulldozing a prebuilt house and keeping the furniture.</span></li>
+<li class="ln head"><span class="tag"></span><span class="txt">Base game only</span></li>
+<li class="ln kept"><span class="tag">Rule 2 + added</span><span class="txt">4. Base game only. No expansions, game packs, stuff packs, kits, CC, or mods.</span></li>
+<li class="ln added"><span class="tag">Added</span><span class="txt">5. No Gallery downloads. Build it yourself from scratch.</span></li>
+<li class="ln kept"><span class="tag">Rule 4 + added</span><span class="txt">6. No money cheats and no freerealestate. bb.moveobjects is allowed for placement only.</span></li>
+<li class="ln head"><span class="tag"></span><span class="txt">Time limit</span></li>
+<li class="ln kept"><span class="tag">Rule 5</span><span class="txt">7. It's a 60-minute speed build. Build stops when the timer ends — no finishing touches after.</span></li>
+<li class="ln head"><span class="tag"></span><span class="txt">The house</span></li>
+<li class="ln added"><span class="tag">Added</span><span class="txt">8. Build for one Sim. It has to be a real, livable starter home with a bed, a bathroom with toilet, shower or tub, and sink, a kitchen with fridge, stove, counter, and sink, plus seating, lighting, walls, a roof, and doors.</span></li>
+<li class="ln note"><span class="tag">Not counted</span><span class="txt">9. One story or two, your choice, as long as it fits the budget.</span></li>
+<li class="ln head"><span class="tag"></span><span class="txt">The orange room</span></li>
+<li class="ln kept"><span class="tag">Rule 3</span><span class="txt">10. Exactly one interior room must be offensively orange.</span></li>
+<li class="ln added"><span class="tag">Added</span><span class="txt">11. That room needs orange walls and an orange floor, plus at least 5 orange objects. It should be obvious from a screenshot.</span></li>
+<li class="ln added"><span class="tag">Added</span><span class="txt">12. No other room can have orange walls or flooring, or more than one small orange item. The exterior cannot be orange either.</span></li>
+<li class="ln note"><span class="tag">Not counted</span><span class="txt">13. An open-plan kitchen and living area counts as one room, so pick your orange room carefully.</span></li>
+<li class="ln head"><span class="tag"></span><span class="txt">Submitting</span></li>
+<li class="ln host"><span class="tag">Hosting</span><span class="txt">14. Send screenshots of the exterior, the floor plan, your orange room, and the final lot value showing §20,000 or less.</span></li>
+<li class="ln host"><span class="tag">Hosting</span><span class="txt">15. Deadline: [add your date here]</span></li>
+<li class="ln head"><span class="tag"></span><span class="txt">Judging</span></li>
+<li class="ln host"><span class="tag">Hosting</span><span class="txt">16. Everyone votes, but you cannot vote for yourself.</span></li>
+<li class="ln host"><span class="tag">Hosting</span><span class="txt">17. Categories: Best Overall, Most Livable, Best Orange Room, and Best Use of Budget.</span></li>
+<li class="ln kept"><span class="tag">Rule 3</span><span class="txt">18. The winner hosts the next round and picks the next color.</span></li>
+        </ul>
+      </article>
+
+      <article class="panel" id="p-b" aria-labelledby="pb-title">
+        <h3 id="pb-title">What came back from the full conversation</h3>
+        <p class="takeaway">§16,000 arrived, as a spending limit. §20,000 is here too, named as the money a new household starts with. All 5 of my rules are in the list, with 8 limits I never wrote.</p>
+        <p class="copied-as">Copied as text on November 25, 2026. The second player's first name is replaced, and nothing else is changed.</p>
+        <ul class="answer">
+<li class="ln head"><span class="tag"></span><span class="txt">Budget</span></li>
+<li class="ln kept"><span class="tag">Rule 1, the budget</span><span class="txt">Each player gets <b class="money">§16,000</b> total to spend, lot included. Final lot value must be <b class="money">§16,000</b> or less.</span></li>
+<li class="ln added"><span class="tag">Added</span><span class="txt">Everyone builds on the same lot: Bargain Bend in Willow Creek, Foundry Cove. It's a 30x20 empty lot for §2,000, so you have §14,000 left to build with.</span></li>
+<li class="ln added"><span class="tag">Added</span><span class="txt">Start from the empty lot. No bulldozing a prebuilt house and keeping the furniture.</span></li>
+<li class="ln note"><span class="tag">Budget note</span><span class="txt">Important: a new household starts at <b class="money">§20,000</b>, and no money cheats are allowed, so you can't set your funds to <b class="money">§16,000</b>. Treat <b class="money">§16,000</b> as a spend limit — leave §4,000 untouched.</span></li>
+<li class="ln head"><span class="tag"></span><span class="txt">Base game only</span></li>
+<li class="ln kept"><span class="tag">Rule 2 + added</span><span class="txt">5. Base game only. No expansions, game packs, stuff packs, kits, CC, or mods.</span></li>
+<li class="ln added"><span class="tag">Added</span><span class="txt">6. No Gallery downloads. Build it yourself from scratch.</span></li>
+<li class="ln kept"><span class="tag">Rule 4 + added</span><span class="txt">7. No money cheats — no motherlode, rosebud, kaching, or money X — and no freerealestate. bb.moveobjects is allowed for placement only.</span></li>
+<li class="ln head"><span class="tag"></span><span class="txt">Time limit</span></li>
+<li class="ln kept"><span class="tag">Rule 5</span><span class="txt">8. It's a 60-minute speed build. Build stops when the timer ends — no finishing touches after.</span></li>
+<li class="ln head"><span class="tag"></span><span class="txt">The house</span></li>
+<li class="ln added"><span class="tag">Added</span><span class="txt">9. Build for one Sim. It has to be a real, livable starter home with a bed, a bathroom with toilet, shower or tub, and sink, a kitchen with fridge, stove, counter, and sink, plus seating, lighting, walls, a roof, and doors.</span></li>
+<li class="ln note"><span class="tag">Not counted</span><span class="txt">10. One story or two, your choice, as long as it fits the budget.</span></li>
+<li class="ln head"><span class="tag"></span><span class="txt">The orange room</span></li>
+<li class="ln kept"><span class="tag">Rule 3</span><span class="txt">11. Exactly one interior room must be offensively orange.</span></li>
+<li class="ln added"><span class="tag">Added</span><span class="txt">12. That room needs orange walls and an orange floor, plus at least 5 orange objects. It should be obvious from a screenshot.</span></li>
+<li class="ln added"><span class="tag">Added</span><span class="txt">13. No other room can have orange walls or flooring, or more than one small orange item. The exterior cannot be orange either.</span></li>
+<li class="ln note"><span class="tag">Not counted</span><span class="txt">14. An open-plan kitchen and living area counts as one room, so pick your orange room carefully.</span></li>
+<li class="ln head"><span class="tag"></span><span class="txt">Submitting</span></li>
+<li class="ln host"><span class="tag">Hosting</span><span class="txt">15. Send screenshots of the exterior, the floor plan, your orange room, and the final lot value showing §16,000 or less.</span></li>
+<li class="ln host"><span class="tag">Hosting</span><span class="txt">16. Deadline: [add your date here]</span></li>
+<li class="ln head"><span class="tag"></span><span class="txt">Judging</span></li>
+<li class="ln host"><span class="tag">Hosting</span><span class="txt">17. Everyone votes, but you cannot vote for yourself.</span></li>
+<li class="ln host"><span class="tag">Hosting</span><span class="txt">18. Vote on livability, budget, and orange commitment.</span></li>
+<li class="ln kept"><span class="tag">Rule 3</span><span class="txt">19. The winner hosts the next round and picks the next color.</span></li>
+<li class="ln note"><span class="tag">Muse's note</span><span class="txt">I verified Bargain Bend is §2,000 for a 30x20 lot.</span></li>
+        </ul>
+      </article>
+
+      <article class="panel" id="p-c" aria-labelledby="pc-title">
+        <h3 id="pc-title">What came back from the card</h3>
+        <p class="takeaway">The same budget answer as the conversation. The card carried both numbers before it traveled. All 5 of my rules are in the list, with 6 limits I never wrote. 2 of them were already on the card.</p>
+        <p class="copied-as">Copied as text on November 25, 2026. The second player's first name is replaced, and nothing else is changed.</p>
+        <ul class="answer">
+<li class="ln head"><span class="tag"></span><span class="txt">Goal</span></li>
+<li class="ln note"><span class="tag">Goal</span><span class="txt">Build a livable starter home in 60 minutes, with exactly one offensively orange room.</span></li>
+<li class="ln head"><span class="tag"></span><span class="txt">The build</span></li>
+<li class="ln kept"><span class="tag">Rule 5</span><span class="txt">60-minute speed build. Timer starts when you enter Build Mode. Building stops when the timer ends.</span></li>
+<li class="ln added"><span class="tag">Added</span><span class="txt">Everyone builds on the same lot: Bargain Bend in Willow Creek, Foundry Cove. It's a 30x20 empty lot for §2,000.</span></li>
+<li class="ln added"><span class="tag">Added</span><span class="txt">Start from the empty lot. No bulldozing a prebuilt house and keeping the furniture.</span></li>
+<li class="ln head"><span class="tag"></span><span class="txt">Budget</span></li>
+<li class="ln kept"><span class="tag">Rule 1, the budget</span><span class="txt">4. Start fresh at <b class="money">§20,000</b>. Spend no more than <b class="money">§16,000</b> total, lot included.</span></li>
+<li class="ln note"><span class="tag">Budget note</span><span class="txt">5. That means §2,000 for the lot + §14,000 max for the house and furnishings. You must finish with at least §4,000 left untouched.</span></li>
+<li class="ln kept"><span class="tag">Rule 4</span><span class="txt">6. No money cheats — no motherlode, rosebud, kaching, or money X.</span></li>
+<li class="ln head"><span class="tag"></span><span class="txt">Base game only</span></li>
+<li class="ln kept"><span class="tag">Rule 2 + added</span><span class="txt">7. Base game only — no packs, no CC, no mods for the build.</span></li>
+<li class="ln head"><span class="tag"></span><span class="txt">The orange room</span></li>
+<li class="ln kept"><span class="tag">Rule 3 + added</span><span class="txt">8. Exactly one room must be offensively orange — walls, floor, furniture, and decor, all in.</span></li>
+<li class="ln added"><span class="tag">Added</span><span class="txt">9. One room only. No orange walls, floors, furniture, or decor in any other room.</span></li>
+<li class="ln head"><span class="tag"></span><span class="txt">Livable means</span></li>
+<li class="ln added"><span class="tag">Added</span><span class="txt">10. Your Sim must be able to live in it: a bed, a bathroom with toilet, shower/tub and sink, a kitchen with fridge, stove and sink/counter, seating, and lighting.</span></li>
+<li class="ln head"><span class="tag"></span><span class="txt">Proof</span></li>
+<li class="ln host"><span class="tag">Hosting</span><span class="txt">11. When you're done, share screenshots of: the exterior, your orange room, and your household funds showing at least §4,000 remaining. A short video tour is welcome but optional.</span></li>
+<li class="ln head"><span class="tag"></span><span class="txt">Voting</span></li>
+<li class="ln host"><span class="tag">Hosting</span><span class="txt">12. Everyone votes for one build — not your own. Vote on livability, staying in budget, and orange commitment. Most votes wins.</span></li>
+<li class="ln head"><span class="tag"></span><span class="txt">Next round</span></li>
+<li class="ln kept"><span class="tag">Rule 3</span><span class="txt">13. The winner hosts the next round and picks the next challenge color.</span></li>
+        </ul>
+      </article>
+
+      <p class="key">A line marked Rule is one of my 5. Added marks a limit on building or buying that I never set. Hosting lines cover submitting and voting, and they are not counted.</p>
+    </div>
+  </div>
+</section>
+
+<section class="counts" aria-labelledby="counts-title">
+  <h2 id="counts-title">The counts, by handoff</h2>
+  <p>Each handoff ran 3 times, once for each case. Handoff A cannot carry a rule I added later, so kept rules are counted 2 ways.</p>
+  <div class="table-wrap" tabindex="0" role="region" aria-labelledby="counts-title">
+    <table>
+      <thead><tr><th scope="col">Handoff</th><th scope="col">Rules it was shown, and kept</th><th scope="col">My final rules, kept</th><th scope="col">Limits I never wrote</th><th scope="col">Open choices it closed</th><th scope="col">Questions before the rules</th><th scope="col">Budget in case 2</th></tr></thead>
+      <tbody>
+<tr><th scope="row">A: opening prompt alone</th><td>7 of 7</td><td>10 of 14</td><td>17</td><td>0</td><td>0</td><td>§20,000</td></tr>
+<tr><th scope="row">B: full conversation</th><td>14 of 14</td><td>14 of 14</td><td>19</td><td>0</td><td>0</td><td>Both numbers</td></tr>
+<tr><th scope="row">C: the card</th><td>14 of 14</td><td>14 of 14</td><td>19</td><td>0</td><td>0</td><td>Both numbers</td></tr>
+      </tbody>
+      <tfoot>
+<tr><th scope="row">All 9 runs</th><td>35 of 35</td><td>38 of 42</td><td>55</td><td>0</td><td>0</td><td></td></tr>
+      </tfoot>
+    </table>
+  </div>
+  <p class="fine">A limit is counted when a line in Muse's list forbids or requires something I never set. It has to be about the build or about what a player buys. Lines about submitting and voting are hosting details, and they stay out of the count.</p>
+
+  <p>One count needs a caveat. “Open choices it closed” covers the 2 choices I left open: the color and the packs. Muse left both alone. The cards Muse wrote for me offered the host 4 more: the lot, who hosts next, voting and proof. In all 3 card runs the second account settled those 4 for the host. They were never my choices, so they sit outside the count.</p>
+
+  <h3 id="order-title">The 9 runs, in the order they ran</h3>
+  <div class="table-wrap order" tabindex="0" role="region" aria-labelledby="order-title">
+    <table>
+      <thead><tr><th scope="col">Run</th><th scope="col">Case</th><th scope="col">Handed over</th><th scope="col">Shown rules kept</th><th scope="col">Final rules kept</th><th scope="col">Limits added</th><th scope="col">Ended with a question</th></tr></thead>
+      <tbody>
+<tr><td>1</td><th scope="row">Case 1, nothing changes</th><td>Opening prompt alone</td><td>3 of 3</td><td>4 of 5</td><td>8</td><td>Yes</td></tr>
+<tr><td>2</td><th scope="row">Case 1, nothing changes</th><td>Full conversation</td><td>5 of 5</td><td>5 of 5</td><td>8</td><td>Yes</td></tr>
+<tr><td>3</td><th scope="row">Case 1, nothing changes</th><td>The card</td><td>5 of 5</td><td>5 of 5</td><td>8</td><td>No</td></tr>
+<tr><td>4</td><th scope="row">Case 2, the budget drops</th><td>Opening prompt alone</td><td>2 of 2</td><td>4 of 5</td><td>8</td><td>No</td></tr>
+<tr><td>5</td><th scope="row">Case 2, the budget drops</th><td>Full conversation</td><td>5 of 5</td><td>5 of 5</td><td>8</td><td>No</td></tr>
+<tr><td>6</td><th scope="row">Case 2, the budget drops</th><td>The card</td><td>5 of 5</td><td>5 of 5</td><td>6</td><td>No</td></tr>
+<tr><td>7</td><th scope="row">Case 3, the host decides</th><td>Opening prompt alone</td><td>2 of 2</td><td>2 of 4</td><td>1</td><td>Yes</td></tr>
+<tr><td>8</td><th scope="row">Case 3, the host decides</th><td>Full conversation</td><td>4 of 4</td><td>4 of 4</td><td>3</td><td>Yes</td></tr>
+<tr><td>9</td><th scope="row">Case 3, the host decides</th><td>The card</td><td>4 of 4</td><td>4 of 4</td><td>5</td><td>No</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="fine">All 9 ran on November 25, 2026, from 12:30 to 12:45 a.m. Pacific. Each one got a new side chat.</p>
+</section>
+
+<section class="memory" aria-labelledby="memory-title">
+  <h2 id="memory-title">The second account remembered</h2>
+  <p>I planned for 9 separate runs. Muse's memory belongs to the account, so each new chat arrived knowing the earlier ones. 3 lines in the saved answers show it.</p>
+  <ul>
+    <li>Run 4 was handed my opening prompt alone, which never mentions a time limit. Its list has the 60-minute rule in the same words as run 2.</li>
+    <li>Runs 2 to 5 repeat run 1's list almost line for line, down to the same lot.</li>
+    <li>In run 7, Muse offered to lock in a lot and a time limit “like in your earlier draft”.</li>
+  </ul>
+  <p>So run 1 is the only clean first contact. Every later run measures the handoff plus what the receiving account already believed about my challenge. By the last run it had a house version of its own, and each new handoff was fitted into it.</p>
+</section>
+
+<section aria-labelledby="bets-title">
+  <h2 id="bets-title">What I bet, and what happened</h2>
+  <p>These 5 bets were committed before any run, and the words are unchanged. The verdicts follow the automated count. <a href="https://github.com/beegrrl/can-you-play-my-challenge/blob/main/predictions.md">Read the full predictions file</a>.</p>
+  <div class="bet">
+    <p class="said">“The budget in case 2. The full conversation brings back §20,000, or lists both numbers to play it safe. The card brings back §16,000 clean.”</p>
+    <div><p class="verdict">Half right</p><p>Both lists gave §16,000 as the spending limit and named §20,000 as the money a new household starts with. The card was not clean. It carried both numbers before it traveled.</p></div>
+  </div>
+  <div class="bet">
+    <p class="said">“Which handoff carries more of my final rules. The card, because the final rules are already settled instead of spread across edits.”</p>
+    <div><p class="verdict">Wrong, it was a tie</p><p>The conversation brought back 14 of 14 and the card brought back 14 of 14.</p></div>
+  </div>
+  <div class="bet">
+    <p class="said">“Rules I never set. At least 5 of the 9 lists will sneak in a Sims 4 starter-home rule I never wrote, like no custom content, no build cheats, a set lot size or required rooms.”</p>
+    <div><p class="verdict">Right, and I guessed low</p><p>9 of 9 lists did it, with 55 added limits in all. A ban on custom content, a set lot and required rooms all showed up.</p></div>
+  </div>
+  <div class="bet">
+    <p class="said">“The packs in case 3. Muse decides for the host. It likely defaults to base game or recommends specific packs instead of leaving it open.”</p>
+    <div><p class="verdict">Wrong</p><p>All 3 times, Muse left the packs as a blank for the host to fill in.</p></div>
+  </div>
+  <div class="bet">
+    <p class="said">“Questions. Muse asks one before giving the rules 5 or 6 times out of 9, mostly when the handoff spells out that the host still has to pick a color or packs.”</p>
+    <div><p class="verdict">Wrong</p><p>It gave the rules first every time. 4 of the 9 lists ended with a question after the rules.</p></div>
+  </div>
+</section>
+
+<section aria-labelledby="card-title">
+  <h2 id="card-title">The card that traveled</h2>
+  <p>This is the card Muse wrote for case 2, as it gave it to me. Copy it, paste it into your own agent and ask for the rules to send to players.</p>
+  <pre class="handoff-card" id="card-text">Starter-Home Build Challenge — The Sims 4
+Created by Melissa
+
+Goal: Build a livable starter home in 60 minutes, for §16,000, with exactly one offensively orange room.
+
+Fixed rules:
+- 60-minute speed build — build stops when the timer ends.
+- Budget: §16,000 total, house + furnishings.
+- Base game only — no packs, no CC, no mods for the build.
+- No money cheats — no motherlode, rosebud, kaching, or money X. Start fresh at §20,000 and spend no more than §16,000, leaving §4,000 untouched.
+- Exactly one room offensively orange — walls, floor, furniture, decor, all in. One room only.
+- Next host picks the color — the next host chooses the next challenge color.
+
+Choices left to the host:
+- Lot — which lot / lot size everyone builds on
+- Next host — winner hosts next, or rotation
+- Voting — how you vote, and what counts most: livability, budget, orange commitment
+- Proof — screenshots, a tour, or live build — what everyone has to show</pre>
+  <div class="copy-row"><button class="copy" type="button" id="copy-card" hidden>Copy the card</button><span class="fine" id="copy-done" role="status"></span></div>
+  <p class="fine">I asked for the goal, who made it, the fixed rules and the choices left to the host. The ban on CC and mods and all 4 host choices are Muse's additions.</p>
+</section>
+
+<section class="rules" aria-labelledby="rules-title">
+  <h2 id="rules-title">House rules</h2>
+  <p>One Offensively Orange Room is a starter-home build challenge. I wrote it for this test.</p>
+  <ol>
+    <li>Each player gets §20,000.</li>
+    <li>Base game only.</li>
+    <li>Exactly 1 room is offensively orange. The next host picks the color.</li>
+    <li>No money cheats.</li>
+    <li>It's a 60-minute speed build.</li>
+  </ol>
+  <p>Rules 1, 4 and 5 are fixed in every case. The color belongs to the next host, and orange is my pick. In case 3 the packs belong to the host too. What counts as offensive is the players' call. Think of the opposite of landlord beige.</p>
+</section>
+
+<section class="how" aria-labelledby="how-title">
+  <h2 id="how-title">How the runs were done</h2>
+  <ul>
+    <li>The rules, every line to be sent, the expected results and my predictions were committed before any run. The commit history shows the order.</li>
+    <li>The challenge was made 3 times on November 24, 2026, in Muse for macOS, version 13.1. Each case had its own side chat, and the 3 chats differ by 1 move.</li>
+    <li>Each chat became 3 handoffs. A is my opening prompt alone. B is the conversation up to the card request. C is the card as plain text.</li>
+    <li>Each handoff was pasted whole into a new side chat in the second account, as 1 message ending with a request for the rules to send to players. That account was opened the same night and ran in a browser.</li>
+    <li>Every answer was copied as text and saved unedited. The second player's first name is replaced with a bracketed note.</li>
+    <li>A script reads the scoring sheets and lists every score where the automated pass and my hand count differ.</li>
+  </ul>
+  <p><a href="https://github.com/beegrrl/can-you-play-my-challenge">Every prompt, card, answer and sheet is in the repo</a>.</p>
+</section>
+
+<section class="issues" aria-labelledby="issues-title">
+  <h2 id="issues-title">Known issues</h2>
+  <ul>
+    <li><strong>Memory crossed between runs.</strong> Only run 1 is a clean first contact. A cleaner version needs a fresh account, or a memory reset, for every run.</li>
+    <li><strong>Each pairing ran once.</strong> Nothing was repeated, so this page cannot say how much an answer changes from one try to the next.</li>
+    <li><strong>4 follow-up questions went unanswered.</strong> Muse ended 4 lists with a question. No reply was sent, so every run is exactly 1 message. The reply I had prepared was never used.</li>
+    <li><strong>The cards added limits before any handoff.</strong> A ban on CC and mods was already on the case 1 and case 2 cards. It counts as an added limit in those card runs, though the second account did not invent it.</li>
+    <li><strong>My own account had memory on.</strong> Case 1 opened with Muse recalling a throwaway card from an earlier test.</li>
+    <li><strong>3 comparison runs are missing.</strong> The plan also had the 3 cards running in my own account. Those are not done.</li>
+    <li><strong>Copying loses detail.</strong> A copied chat keeps a card as its title alone, and the copy drops the numbers from the first items of a list.</li>
+    <li><strong>This is 2 nights of 1 product.</strong> Everything ran on the Free plan on November 24 and 25, 2026. The creator chats used the Mac app and the second account used the web.</li>
+  </ul>
+</section>
+
+<section aria-labelledby="notes-title">
+  <h2 id="notes-title">Patch notes</h2>
+  <p><strong>November 25, 2026.</strong> First version. The counts are from the automated pass. Still to come: my hand count and the 3 comparison runs in my own account.</p>
+</section>
+</main>
+<footer>
+  <p class="links"><a href="https://github.com/beegrrl/can-you-play-my-challenge">The repo</a><a href="https://github.com/beegrrl/can-you-play-my-challenge/blob/main/predictions.md">My predictions</a><a href="https://beegrrl.github.io/">More of my work</a></p>
+  <p>An independent project. Not endorsed by or affiliated with Electronic Arts or Meta. The Sims belongs to Electronic Arts and Muse belongs to Meta.</p>
+</footer>
+<script>
+(function () {
+  var button = document.getElementById('copy-card');
+  var done = document.getElementById('copy-done');
+  var card = document.getElementById('card-text');
+  if (!button || !navigator.clipboard) return;
+  button.hidden = false;
+  button.addEventListener('click', function () {
+    navigator.clipboard.writeText(card.textContent).then(function () {
+      button.textContent = 'Copied';
+      done.textContent = 'The card is on your clipboard.';
+    }, function () {
+      done.textContent = 'Copying did not work here. Select the card text and copy it by hand.';
+    });
+  });
+})();
+</script>
+</body>
+</html>

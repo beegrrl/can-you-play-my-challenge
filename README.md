@@ -4,7 +4,7 @@ A test of what survives when one person hands a challenge to another through an 
 
 I made a build challenge for The Sims 4 with Muse, an AI agent from Meta. A second Muse account that has never seen the challenge gets it handed over and is asked for the rules to send to players. This repo holds every prompt, card and answer, plus the sheets I score them on.
 
-**Status: frozen, not yet run.** The results and the page come after the runs.
+**Status: 9 runs done, first counts in.** [The page is here](https://beegrrl.github.io/can-you-play-my-challenge/). Its counts come from the automated pass. My hand count is next, and so are the 3 comparison runs in my own account.
 
 ## How the test works
 
@@ -39,9 +39,10 @@ challenge/wording.md        every line typed, word for word
 challenge/case-N-expected.md  what a lossless handoff returns
 creator/                    my 3 conversations and their cards
 handoffs/                   the 9 texts pasted into the second account
-runs/                       Muse's answers, unedited
-scoring/                    the sheets, the script and its tests
+runs/                       Muse's answers, and how they were saved
+scoring/                    the sheets, the script, its tests and results.json
 step0-notes.md              what Muse can hand over
+index.html                  the page
 ```
 
 ## Check the scoring
@@ -51,6 +52,10 @@ python3 -m unittest discover -s scoring
 python3 scoring/build_results.py --check
 ```
 
-The second command counts the scored runs and lists every score where the 2 passes differ.
+The second command counts the scored runs and lists every score where the 2 passes differ. Today it prints `0 runs, 12 missing` for my sheets and `9 runs, 3 missing` for the second pass.
+
+## What did not go to plan
+
+The second account remembered its earlier runs, so only run 1 is a clean first contact. `runs/README.md` has the evidence, and the page lists every known issue.
 
 An independent project. Not endorsed by or affiliated with Electronic Arts or Meta. The Sims belongs to Electronic Arts and Muse belongs to Meta.
