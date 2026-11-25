@@ -12,7 +12,7 @@ I made a build challenge for The Sims 4 with Muse, an AI agent from Meta. A seco
 2. I make the challenge 3 times, each in its own side chat. The conversations differ by 1 move, and `challenge/rules.md` lists them.
 3. Each conversation reaches the second account 3 ways.
    - Handoff A: the opening prompt alone.
-   - Handoff B: the full conversation.
+   - Handoff B: the full conversation, up to the moment I ask for the card.
    - Handoff C: a card Muse makes, taken as plain text.
 4. That is 9 runs in the second account. I also run the 3 cards in my own account for comparison.
 5. I score every rule list by hand. An automated second pass scores them again.
