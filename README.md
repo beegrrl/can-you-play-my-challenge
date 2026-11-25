@@ -4,7 +4,7 @@ A test of what survives when one person hands a challenge to another through an 
 
 I made a build challenge for The Sims 4 with Muse, an AI agent from Meta. A second Muse account that has never seen the challenge gets it handed over and is asked for the rules to send to players. This repo holds every prompt, card and answer, plus the scoring sheets.
 
-**Status: 9 runs done and scored twice.** [The page is here](https://beegrrl.github.io/can-you-play-my-challenge/). Its numbers come from the first scoring pass, and it shows where the second pass disagrees.
+**Status: 9 runs done and scored twice.** [The page is here](https://beegrrl.github.io/one-offensively-orange-room/). Its numbers come from the first scoring pass, and it shows where the second pass disagrees.
 
 ## How the test works
 
